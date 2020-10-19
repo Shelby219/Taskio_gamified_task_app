@@ -2,10 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Define Post schema
-const Post = new Schema({
-    title: {
+const Task = new Schema({
+    name: {
         type: String,
         required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        username: String
     },
     create_date: {
         type: Date,
@@ -15,10 +26,6 @@ const Post = new Schema({
         type: Date,
         required: true
     },
-    username: {
-        type: String,
-        required: true
-    },
     content: {
         type: String,
         required: true
@@ -26,4 +33,5 @@ const Post = new Schema({
     category: String
 });
 
-module.exports = mongoose.model('Post', Post);
+module.exports = mongoose.model('Task', Task);
+
