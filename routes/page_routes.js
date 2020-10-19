@@ -5,8 +5,9 @@ const {
     index,
     dashboard
 } = require('../controllers/page_controller');
+const {checkAuthentication, authRedirect} = require("../middleware/auth_middleware")
 
-router.get('/', index);
-router.get('/dashboard', dashboard);
+router.get('/home', authRedirect, index);
+router.get('/dashboard', checkAuthentication, dashboard);
 
 module.exports = router;

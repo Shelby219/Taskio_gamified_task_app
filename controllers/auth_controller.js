@@ -4,9 +4,9 @@ const uid = require('uid2');
 
 
 function registerNew(req, res) {
-    res.render("auth/register");
+    res.render("auth/register.pug");
 }
-
+      
 function registerCreate(req, res, next) {
     const newUserHandler = (user) => {
     // Where did we get req.login from?
@@ -14,7 +14,7 @@ function registerCreate(req, res, next) {
         if(err){
             next(err)
         } else {
-            res.redirect("/dashboard")
+            res.redirect("/tasks/dashboard")
         }
         })
     }
@@ -23,22 +23,22 @@ function registerCreate(req, res, next) {
     UserModel.create({email, password})
         .then(newUserHandler)
         .catch(x => console.log(x))
-    
 }
 
 function logOut(req, res) {
+
     req.logout();
-    res.redirect("/");
+    res.redirect("/home");
 }
 
 function loginNew(req, res) {
-    res.render("auth/login");
+    res.render("auth/login.pug");
 }
 
 function loginCreate(req, res, next) {
     const loginFunc = passport.authenticate("local",
     {
-    successRedirect: "/dashboard",
+    successRedirect: "/tasks/dashboard",
     failureRedirect: "/user/login"
     })
     loginFunc(req, res, next)

@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+
+  h2 New Task 
+
+  form.form-signin(action='/tasks/create', method='POST')
+    p
+      | Name: 
+      input.form-control(type='text', name='name', value='')
+      | Description: 
+      input.form-control(type='text', name='description', value='')
+      | Category: 
+      select.form-control(type='text', name='category')
+              option(value='') -- Select --
+              option(value='Task', ) Task
+              option(value='To Do', ) To Do
+              option(value='Habit', ) Habit
+      | Due Date:
+      input.form-control(type='date', name='due_date', value='') 
+      | Repeating:
+      input.form-control(type='checkbox', name='repeating', value='yes') 
+      |
+    input.btn.btn-lg.btn-primary.btn-block(type='submit', value='Create Task')
+
+
+  
