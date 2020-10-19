@@ -44,7 +44,11 @@ const getTask = function (req, res) {
             res.status(404);
             return res.send("Task not found");
         }
-        res.render('tasks/task');
+        res.render('tasks/task.pug', { 
+            title: task.name, 
+            task: task,
+            user: req.user
+            })
     });
 };     
 
