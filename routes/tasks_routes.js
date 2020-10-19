@@ -9,7 +9,7 @@ const {
   taskNew,
   taskEdit
 } = require('../controllers/tasks_controller');
-
+const {checkAuthentication} = require("../middleware/auth_middleware")
 
 
 // CREATE
@@ -21,7 +21,7 @@ router.get('/edit', taskEdit);
 router.put('/:id', changeTask);
 
 // READ
-router.get('/', getTasks);       
+router.get('/dashboard', checkAuthentication, getTasks);       
 
 // READ
 router.get('/:id', getTask);

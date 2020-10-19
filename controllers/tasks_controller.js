@@ -8,7 +8,6 @@ const {
 
 const getTasks = function (req, res) {
     // execute the query from getAllTask
-    
     getAllTasks(req)
     .exec((err, tasks) => {
         if (err) {
@@ -17,9 +16,11 @@ const getTasks = function (req, res) {
                 error: err.message
             });
         }
-        res.render('all_tasks.pug', { 
+        
+        res.render('dashboard.pug', { 
             title: 'All Tasks', 
-            tasks: tasks
+            tasks: tasks,
+            user: req.user
             })
     })
 };
@@ -36,7 +37,7 @@ const getTask = function (req, res) {
 };     
 
 function taskNew(req, res) {
-    res.render("tasks/new");
+    res.render("tasks/new_task.pug");
 }
 
 const makeTask = function (req, res) {
@@ -63,7 +64,7 @@ const removeTask = function (req, res) {
 };
 
 function taskEdit(req, res) {
-    res.render("tasks/edit");
+    res.render("tasks/edit_task.pug");
 }
 
 const changeTask = function (req, res) {
@@ -78,7 +79,7 @@ const changeTask = function (req, res) {
         res.status(200);
         //req.flash('success', 'Task Updated')
         res.send('Success');
-        res.redirect('/dashboard');
+        res.redirect('/tasks/dashboard');
     });
 };
 

@@ -1,5 +1,5 @@
 function index(req, res) {
-    res.render("home")
+    res.render("home.pug")
 }
     
 function dashboard(req, res) {

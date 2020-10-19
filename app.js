@@ -38,7 +38,7 @@ app.use(expressSession({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        expires: 600000
+        expires: 6000000
     },
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));

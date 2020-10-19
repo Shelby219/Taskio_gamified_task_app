@@ -23,10 +23,8 @@ const addTask = function (req) {
 	let task = {
 		name: req.body.name,
         description: req.body.description,
-        author: "test",
-        completed: false ,
-        points: 0 ,
-        repeating: false ,
+        category: req.body.category,
+        repeating: req.body.repeating,
 		create_date: date,
         modified_date: date,
         due_date: req.body.due_date

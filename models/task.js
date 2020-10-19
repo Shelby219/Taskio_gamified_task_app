@@ -13,7 +13,7 @@ const Task = new Schema({
     },
     author: {
         id: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: "User"
         },
         username: String
@@ -28,12 +28,18 @@ const Task = new Schema({
     },
     due_date: {
         type: Date
-    
     },
     completed: {
         type: Boolean,
         default: false
-    }
+    },
+    repeating: {
+        type: Boolean,
+        default: false
+    },
+    category: {
+        type: String
+      }
 });
 
 module.exports = mongoose.model('Task', Task);

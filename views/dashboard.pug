@@ -1,6 +1,81 @@
 extends layout
 
+
 block content
+ 
+
+  .container-fluid
+    .row
+      .col-sm-3.col-md-2.sidebar
+    
+      .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+       h1.title= title
+       div  
+        a.button(href='/tasks/create') Add New   
+        .row.placeholders
+          .col-xs-6.col-sm-3.placeholder
+            canvas(id="myChart" width="250" height="250")
+             h4 Label
+            span.text-muted Something else
+          .col-xs-6.col-sm-3.placeholder
+            canvas(id="myChart" width="200" height="200")
+             h4 Label
+            span.text-muted Something else
+          .col-xs-6.col-sm-3.placeholder
+            canvas(id="myChart" width="200" height="200")
+             h4 Label
+            span.text-muted Something else
+
+        form.form-inline.mt-2.mt-md-0
+          input.form-control.mr-sm-2(type='text', placeholder='Search', aria-label='Search')
+          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+        h2.sub-header Tasks
+        .table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th Category
+                th Name
+                th Due Date
+                th Description
+                th Repeating
+            tbody
+            each task in tasks
+              tr
+                td=task.category
+                td=task.name
+                td=task.due_date
+                td=task.description
+                td=task.repeating
 
 
-    h1 Dashboard
+      
+  footer
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(src='../public/script.js')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js")
+    script. 
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["red", "green", "blue"],
+                datasets: [{
+                    label: 'Number of votes',
+                    data: [1, 1, 1],
+                    backgroundColor: ['red', 'green', 'blue'],
+                    borderColor: ['green', 'blue', 'red'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "chart"
+                },
+                legend: {
+                    position: 'bottom'
+                },
+                responsive: false,
+            }
+        });

@@ -26,9 +26,9 @@ function registerCreate(req, res, next) {
 }
 
 function logOut(req, res) {
-    
+
     req.logout();
-    res.redirect("/");
+    res.redirect("/home");
 }
 
 function loginNew(req, res) {
