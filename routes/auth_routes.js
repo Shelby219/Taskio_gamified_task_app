@@ -8,8 +8,10 @@ const passport = require("passport")
 const {registerCreate, 
     registerNew, 
     logOut, 
-    loginNew, 
-    issueCookie} = require('../controllers/auth_controller')
+    loginNew,
+    // issueCookie
+    loginCreate 
+    } = require('../controllers/auth_controller')
 
 
 
@@ -20,9 +22,10 @@ router.post('/register', registerCreate);
 router.get('/logout', logOut);
 
 router.get("/login", loginNew )
-router.post("/login", 
-    passport.authenticate('local', {failureRedirect: '/login', failureFlash: true }), 
-    issueCookie)
+router.post("/login", loginCreate)
+// router.post("/login", 
+//     passport.authenticate('local', {failureRedirect: '/login', failureFlash: true }), 
+//     issueCookie)
 
 
 
