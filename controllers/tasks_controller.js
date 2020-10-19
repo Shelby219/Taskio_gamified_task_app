@@ -25,7 +25,13 @@ const getTasks = function (req, res) {
     })
 };
 
-// const getPoints = function (tasks){
+function setpoints (tasks) {
+    //iterate over tasks
+    //if category then get points certain amount
+
+}
+ 
+     // const getPoints = function (tasks){
 //     let completed = tasks.find({completed: true})
 //     return completed;
 
