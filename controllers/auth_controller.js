@@ -40,6 +40,7 @@ function loginCreate(req, res, next) {
         failureRedirect: "/user/login"
         })
     loginFunc(req, res, next)
+    // console.log(res.cookie())
 }
 
 module.exports = {
