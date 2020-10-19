@@ -6,28 +6,28 @@ block content
   .container-fluid
     .row
       .col-sm-3.col-md-2.sidebar
+        h3 Rewards
     
       .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2
        h2.title= title
-       div  
-        a.btn.btn-primary(href='/tasks/create') Add New   
+       div
+        a.btn.btn-primary(href='/tasks/create') Add New  
         .row.placeholders
           .col-xs-6.col-sm-3.placeholder
-            canvas(id="taskChart" width="250" height="250")
-             h4 Label
-            span Tasks
+            canvas(id="taskChart" width="200" height="200")
+            
           .col-xs-6.col-sm-3.placeholder
-            canvas(id="todoChart" width="250" height="250")
-             h4 Label
-            span To Do's
+            canvas(id="todoChart" width="200" height="200")
+           
           .col-xs-6.col-sm-3.placeholder
-            canvas(id="habitChart" width="250" height="250")
-             h4 Label
-            span Habits
-
+            canvas(id="habitChart" width="200" height="200")
+          
+      
         form.form-inline.mt-2.mt-md-0
           input.form-control.mr-sm-2(type='text', placeholder='Search', aria-label='Search')
           button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+        
+           
         h2.sub-header Tasks
         .table-responsive
           table.table.table-striped

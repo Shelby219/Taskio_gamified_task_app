@@ -16,7 +16,7 @@ const getTasks = function (req, res) {
                 error: err.message
             });
         }
-        console.log(tasks[3].due_date.toDateString())
+       // console.log(getPoints(tasks))
         res.render('dashboard.pug', { 
             title: 'All Tasks', 
             tasks: tasks,
@@ -24,6 +24,12 @@ const getTasks = function (req, res) {
             })
     })
 };
+
+// const getPoints = function (tasks){
+//     let completed = tasks.find({completed: true})
+//     return completed;
+
+// }
 
 const getTask = function (req, res) {
     // execute the query from getTaskById

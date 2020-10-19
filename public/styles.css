@@ -36,7 +36,7 @@
 }
 
 #taskChart, #todoChart, #habitChart {
-
+margin: 75px;
 }
 h2 {
   text-align: center;

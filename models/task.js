@@ -42,5 +42,9 @@ const Task = new Schema({
       }
 });
 
+Task.methods.findCompleted  = function findCompleted (cb) {
+    return this.model('task').find({ completed: true }, cb);
+  };
+
 module.exports = mongoose.model('Task', Task);
 

@@ -14,7 +14,7 @@ function registerCreate(req, res, next) {
         if(err){
             next(err)
         } else {
-            res.redirect("/dashboard.pug")
+            res.redirect("/tasks/dashboard")
         }
         })
     }
@@ -38,7 +38,7 @@ function loginNew(req, res) {
 function loginCreate(req, res, next) {
     const loginFunc = passport.authenticate("local",
     {
-    successRedirect: "/dashboard",
+    successRedirect: "/tasks/dashboard",
     failureRedirect: "/user/login"
     })
     loginFunc(req, res, next)
