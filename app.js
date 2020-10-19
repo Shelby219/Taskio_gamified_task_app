@@ -29,6 +29,10 @@ app.use(express.urlencoded({
     extended:true   
 }));
 
+const path = require('path');
+app.set('views', path.join(__dirname, '/views'));
+app.set('view engine', 'pug');
+
 app.use(expressSession({
     secret: "dogs",
     resave: false,
@@ -43,9 +47,7 @@ app.use(expressSession({
 //app.set('view engine', 'handlebars');
 
 
-const path = require('path');
-app.set('views', path.join(__dirname, '/views'));
-app.set('view engine', 'pug');
+
 
 const dbConn =  process.env.MONGODB_URI ||  'mongodb://localhost/task_app'
 

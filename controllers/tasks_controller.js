@@ -8,6 +8,7 @@ const {
 
 const getTasks = function (req, res) {
     // execute the query from getAllTask
+    
     getAllTasks(req)
     .exec((err, tasks) => {
         if (err) {
@@ -16,16 +17,11 @@ const getTasks = function (req, res) {
                 error: err.message
             });
         }
-        //res.send(tasks)
-        let allTasks = tasks
-        res.render('alltasks', { 
+        res.render('all_tasks.pug', { 
             title: 'All Tasks', 
-            tasks: tasks, 
+            tasks: tasks
             })
-   
-        // res.render("tasks/alltasks", {tasks: tasks });
-        // console.log(tasks[2].name)
-    });
+    })
 };
 
 const getTask = function (req, res) {

@@ -4,7 +4,7 @@ const uid = require('uid2');
 
 
 function registerNew(req, res) {
-    res.render("auth/register");
+    res.render("auth/register.pug");
 }
       
 function registerCreate(req, res, next) {
@@ -14,7 +14,7 @@ function registerCreate(req, res, next) {
         if(err){
             next(err)
         } else {
-            res.redirect("/dashboard")
+            res.redirect("/dashboard.pug")
         }
         })
     }
@@ -26,12 +26,13 @@ function registerCreate(req, res, next) {
 }
 
 function logOut(req, res) {
+    
     req.logout();
     res.redirect("/");
 }
 
 function loginNew(req, res) {
-    res.render("auth/login");
+    res.render("auth/login.pug");
 }
 
 function loginCreate(req, res, next) {

@@ -1,13 +1,12 @@
 extends layout
 
 block content
-
- div.title
+  div.title
   h1.title-text= title
- 
-    each task in tasks
-      li
-       div
+  div
+    div
         p=task.name
         p=task.description
+        p=task.due_date
         div
+

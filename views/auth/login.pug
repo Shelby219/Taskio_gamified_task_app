@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+
+  form(action='/user/login', method='POST')
+    p
+      | Email: 
+      input(type='text', name='email', value='')
+      | Password: 
+      input(type='password', name='password', value='')
+      | Remember Me:
+      input(type='checkbox', name='remember_me', value='yes') 
+      |
+    input(type='submit', value='Login')
