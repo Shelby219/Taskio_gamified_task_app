@@ -16,7 +16,7 @@ const getTasks = function (req, res) {
                 error: err.message
             });
         }
-        
+        console.log(tasks[3].due_date.toDateString())
         res.render('dashboard.pug', { 
             title: 'All Tasks', 
             tasks: tasks,
@@ -44,7 +44,7 @@ const makeTask = function (req, res) {
     // save the Task instance from addTask
     addTask(req)
     .then(t => 
-        res.redirect("/tasks")
+        res.redirect("/tasks/dashboard")
         )
     .catch(err => 
         res.send(err))

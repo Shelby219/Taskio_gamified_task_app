@@ -37,14 +37,14 @@ html
                 | Login
       if  user !== undefined
         i.fas.fa-hourglass-half 
-        p Timing Out
+        p.gem-time Timing Out
         i.far.fa-gem 
-        p Gems
+        p.gem-time Gems
       else   
         a.btn.btn-primary(href='/user/register') 
                   | Get Started Today!
-    #page
-      block content
+  #page
+  block content
 
       
 

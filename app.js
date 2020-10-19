@@ -8,7 +8,7 @@ const rememberMe = require('passport-remember-me')
 const cookieParser = require('cookie-parser')
 const expressSession = require('express-session')
 const MongoStore = require('connect-mongo')(expressSession);
-
+const methodOverride = require('method-override')
 
 const taskRouter = require('./routes/tasks_routes');
 const pageRouter = require("./routes/page_routes");
@@ -28,6 +28,9 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended:true   
 }));
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
+
 
 const path = require('path');
 app.set('views', path.join(__dirname, '/views'));

@@ -21,10 +21,25 @@
   font-family: 'Quicksand', sans-serif;
   font-size: 2em !important;
 }
-.nav-link {
+.nav-link, .fas, .far{
   color: white !important;
   text-decoration: none;
-  
+  padding: 20px; 
+}
+.gem-time  {
+  color: white !important;
+ 
+}
+.sidebar {
+  margin-top: -75px;
+  background-color: lightyellow !important;
+}
+
+#taskChart, #todoChart, #habitChart {
+
+}
+h2 {
+  text-align: center;
 }
 
 body {
@@ -193,7 +208,7 @@ body {
     justify-content: center;
 }
 
-.row {
+.row-home {
   width: auto;
   border: 1px solid blue;
   border-radius: 10px;
