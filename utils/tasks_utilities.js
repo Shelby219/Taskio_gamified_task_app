@@ -23,15 +23,17 @@ const addTask = function (req) {
 	let task = {
 		name: req.body.name,
         description: req.body.description,
-        author: req.user.id,
-        category: "test",
+        author: "test",
         completed: false ,
         points: 0 ,
         repeating: false ,
 		create_date: date,
-		modified_date: date
+        modified_date: date,
+        due_date: req.body.due_date
 	}
-    return new Task(task);
+ 
+    const newTask = new Task(task);
+    return newTask.save()
 }
 
 // delete Task

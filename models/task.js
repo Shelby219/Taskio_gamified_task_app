@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 // Define Post schema
 const Task = new Schema({
     name: {
-        type: String,
-        required: true
+        type: String
+       
     },
     description: {
-        type: String,
-        required: true
+        type: String
+        
     },
     author: {
         id: {
@@ -19,18 +19,21 @@ const Task = new Schema({
         username: String
     },
     create_date: {
-        type: Date,
-        required: true
+        type: Date
+    
     },
     modified_date: {
-        type: Date,
-        required: true
+        type: Date
+      
     },
-    content: {
-        type: String,
-        required: true
+    due_date: {
+        type: Date
+    
     },
-    category: String
+    completed: {
+        type: Boolean,
+        default: false
+    }
 });
 
 module.exports = mongoose.model('Task', Task);

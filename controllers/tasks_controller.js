@@ -17,7 +17,14 @@ const getTasks = function (req, res) {
             });
         }
         //res.send(tasks)
-        res.render("tasks/alltasks");
+        let allTasks = tasks
+        res.render('alltasks', { 
+            title: 'All Tasks', 
+            tasks: tasks, 
+            })
+   
+        // res.render("tasks/alltasks", {tasks: tasks });
+        // console.log(tasks[2].name)
     });
 };
 
@@ -26,30 +33,27 @@ const getTask = function (req, res) {
     getTaskById(req).exec((err, task) => {
         if (err) {
             res.status(404);
-            return res.flash("Task not found");
+            return res.send("Task not found");
         }
         res.render('tasks/task');
     });
-};
+};     
+
+function taskNew(req, res) {
+    res.render("tasks/new");
+}
 
 const makeTask = function (req, res) {
     // save the Task instance from addTask
-    addTask(req).save((err, task) => {
-        if (err) {
-            res.status(500);
-            return res.json({
-                error: err.message
-            });
-        }
-        res.status(201);
-        //req.flash('success', 'Task Created')
-        res.send('Success');
-        res.redirect('/dashboard');
-    });
+    addTask(req)
+    .then(t => 
+        res.redirect("/tasks")
+        )
+    .catch(err => 
+        res.send(err))
 };
 
 const removeTask = function (req, res) {
-    // execute the query from deleteTask
     deleteTask(req.params.id).exec((err) => {
         if (err) {
             res.status(500);
@@ -58,10 +62,13 @@ const removeTask = function (req, res) {
             });
         }
         res.sendStatus(204);
-        //req.flash('success', 'Task Deleted')
         res.send('Success');
     });
 };
+
+function taskEdit(req, res) {
+    res.render("tasks/edit");
+}
 
 const changeTask = function (req, res) {
     // execute the query from updateTask
@@ -84,5 +91,7 @@ module.exports = {
     getTask,
     makeTask,
     removeTask,
-    changeTask
+    changeTask,
+    taskNew,
+    taskEdit
 };

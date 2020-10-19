@@ -6,13 +6,13 @@ const passport = require("passport")
 const exphbs = require('express-handlebars');
 const rememberMe = require('passport-remember-me')
 const cookieParser = require('cookie-parser')
+const expressSession = require('express-session')
+const MongoStore = require('connect-mongo')(expressSession);
+
 
 const taskRouter = require('./routes/tasks_routes');
 const pageRouter = require("./routes/page_routes");
 const authRouter = require("./routes/auth_routes");
-
-
-
 
 
 const port = process.env.port || 3009;
@@ -29,12 +29,23 @@ app.use(express.urlencoded({
     extended:true   
 }));
 
+app.use(expressSession({
+    secret: "dogs",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 600000
+    },
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+
+//app.engine('handlebars', exphbs());
+//app.set('view engine', 'handlebars');
 
 
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
-
-
+const path = require('path');
+app.set('views', path.join(__dirname, '/views'));
+app.set('view engine', 'pug');
 
 const dbConn =  process.env.MONGODB_URI ||  'mongodb://localhost/task_app'
 
@@ -54,7 +65,6 @@ mongoose.connect(
 
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-
 app.set('view engine', 'handlebars');
 
 

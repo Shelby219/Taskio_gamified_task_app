@@ -6,7 +6,7 @@ const uid = require('uid2');
 function registerNew(req, res) {
     res.render("auth/register");
 }
-
+      
 function registerCreate(req, res, next) {
     const newUserHandler = (user) => {
     // Where did we get req.login from?
@@ -23,7 +23,6 @@ function registerCreate(req, res, next) {
     UserModel.create({email, password})
         .then(newUserHandler)
         .catch(x => console.log(x))
-    
 }
 
 function logOut(req, res) {
