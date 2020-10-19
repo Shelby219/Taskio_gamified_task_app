@@ -1,6 +1,7 @@
 const UserModel = require("../models/user");
 const passport = require('passport');
 
+
 function registerNew(req, res) {
     res.render("auth/register");
 }
@@ -33,14 +34,18 @@ function loginNew(req, res) {
     res.render("auth/login");
 }
 
-function loginCreate(req, res, next) {
-    const loginFunc = passport.authenticate("local",
-        {
-        successRedirect: "/dashboard",
-        failureRedirect: "/user/login"
-        })
-    loginFunc(req, res, next)
-    // console.log(res.cookie())
+function issueCookie(req, res, next) {
+    console.log(req)
+    // issue a remember me cookie if the option was checked
+    if (!req.body.remember_me) { return next(); }
+
+    var token = utils.generateToken(64);
+    Token.save(token, { userId: req.user.id }, function(err) {
+      if (err) { return done(err); }
+      res.cookie('remember_me', token, { path: '/', httpOnly: true, maxAge: 604800000 }); // 7 days
+      res.redirect('/');
+    });
+    next();
 }
 
 module.exports = {
@@ -48,5 +53,5 @@ module.exports = {
     registerCreate,
     logOut,
     loginNew,
-    loginCreate
+    issueCookie
 }

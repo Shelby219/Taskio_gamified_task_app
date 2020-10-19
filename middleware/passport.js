@@ -1,6 +1,7 @@
 const LocalStrategy = require("passport-local");
+const RememberMeStrategy = require("passport-remember-me").Strategy;
 const passport = require("passport");
-const UserModel = require('../models/user')
+const UserModel = require('../models/user');
 
 //start with user end up with ID
 //user ID is serialized to the session, keeping the amount of data stored within the session small
@@ -40,4 +41,20 @@ const fields = { usernameField: "email"}
 
 passport.use(new LocalStrategy(fields, verifyCallback))
 
+passport.use(new RememberMeStrategy(
+    function(token, done) {
+      Token.consume(token, function (err, user) {
+        if (err) { return done(err); }
+        if (!user) { return done(null, false); }
+        return done(null, user);
+      });
+    },
+    function(user, done) {
+      const token = utils.generateToken(64);
+      Token.save(token, { userId: user.id }, function(err) {
+        if (err) { return done(err); }
+        return done(null, token);
+      });
+    }
+  ));
 

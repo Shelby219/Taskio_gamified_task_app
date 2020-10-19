@@ -7,6 +7,9 @@ const passport = require("passport")
 const pageRouter = require("./routes/page_routes");
 const authRouter = require("./routes/auth_routes");
 const exphbs = require('express-handlebars');
+const rememberMe = require('passport-remember-me')
+const cookieParser = require('cookie-parser')
+
 
 
 
@@ -20,9 +23,10 @@ if(process.env.NODE_ENV !== 'production') {
 
 const app = express();
 app.use(cors());
+app.use(cookieParser())
 app.use(express.json());
 app.use(express.urlencoded({
-    extended:true
+    extended:true   
 }));
 
 
@@ -51,6 +55,8 @@ app.set('view engine', 'handlebars');
 require("./middleware/passport");
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(passport.authenticate('remember-me'));
+
 
 app.use('/posts', postRouter);
 app.use('/user', authRouter);
@@ -60,3 +66,4 @@ app.use('/', pageRouter);
 app.listen(port, () => {
     console.log(`Blog express app listening on port ${port}`);
 });
+
