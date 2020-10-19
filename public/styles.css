@@ -1,9 +1,9 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Raleway:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 :root {
   --size: 50;
   --unit: calc((var(--size) / 100) * 1vmin);
-  font-family: "Raleway", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 :root * {
@@ -36,7 +36,6 @@ background: radial-gradient(circle, rgba(0,36,31,0.6138830532212884) 0%, rgba(31
   font-size: 3em;
   font-weight: 700;
   text-transform: uppercase;
-
 }
 
 .button {
@@ -47,7 +46,6 @@ background: radial-gradient(circle, rgba(0,36,31,0.6138830532212884) 0%, rgba(31
   background-color:#22c1c3 ;
   color: white;
 }
-
 
 .task-container {
   display: flex;
