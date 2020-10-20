@@ -62,7 +62,9 @@ const getTask = function (req, res) {
 };     
 
 function taskNew(req, res) {
-    res.render("tasks/new_task.pug");
+    res.render("tasks/new_task.pug", { 
+        user: req.user
+        });
 }
 
 const makeTask = function (req, res) {
@@ -92,7 +94,8 @@ function taskEdit(req, res) {
     let id = req.params.id
 
     res.render("tasks/edit_task.pug", { 
-        id: id 
+        id: id,
+        user: req.user
         });
 }
 
