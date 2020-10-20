@@ -4,11 +4,11 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require("passport")
 const exphbs = require('express-handlebars');
-const rememberMe = require('passport-remember-me')
 const cookieParser = require('cookie-parser')
 const expressSession = require('express-session')
 const MongoStore = require('connect-mongo')(expressSession);
 const methodOverride = require('method-override')
+const flash = require("connect-flash")
 
 const taskRouter = require('./routes/tasks_routes');
 const pageRouter = require("./routes/page_routes");
@@ -23,11 +23,14 @@ if(process.env.NODE_ENV !== 'production') {
 
 const app = express();
 app.use(cors());
-app.use(cookieParser())
+app.use(cookieParser());
+app.use(flash());
 app.use(express.json());
+
 app.use(express.urlencoded({
     extended:true   
 }));
+app.use(bodyParser.json());
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
 
@@ -40,17 +43,12 @@ app.use(expressSession({
     secret: "dogs",
     resave: false,
     saveUninitialized: false,
-    cookie: {
-        expires: 6000000
-    },
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
+    
 //app.engine('handlebars', exphbs());
 //app.set('view engine', 'handlebars');
-
-
-
 
 const dbConn =  process.env.MONGODB_URI ||  'mongodb://localhost/task_app'
 
@@ -69,14 +67,14 @@ mongoose.connect(
 });
 
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+// app.set('view engine', 'handlebars');
 
 
 require("./middleware/passport");
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(passport.authenticate('remember-me'));
+
 
 
 app.use('/tasks', taskRouter);

@@ -93,7 +93,7 @@ const changeTask = function (req, res) {
             });
         }
         res.status(200);
-        //req.flash('success', 'Task Updated')
+        
         res.send('Success');
         res.redirect('/tasks/dashboard');
     });

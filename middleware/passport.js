@@ -1,5 +1,4 @@
 const LocalStrategy = require("passport-local");
-const RememberMeStrategy = require("passport-remember-me").Strategy;
 const passport = require("passport");
 const UserModel = require('../models/user');
 
@@ -26,35 +25,19 @@ const canLogin = (user, password) => {
 }
 
 const verifyCallback = (email, password, done) => {
-UserModel.findOne({email})
-.then((user) => {
-    if(canLogin(user, password)){
-        return done(null, user)
-    } else {
-        return done(null, false)
-    }
-})
-.catch(done)
+
+    UserModel.findOne({email})
+    .then((user) => {
+        if(canLogin(user, password)){
+            return done(null, user)
+        } else {
+            return done(null, false)
+        }
+    })
+    .catch(done)
 }
 // this is setting passport username to email as passport local accepts username and password
 const fields = { usernameField: "email"}
 
 passport.use(new LocalStrategy(fields, verifyCallback))
-
-passport.use(new RememberMeStrategy(
-    function(token, done) {
-      Token.consume(token, function (err, user) {
-        if (err) { return done(err); }
-        if (!user) { return done(null, false); }
-        return done(null, user);
-      });
-    },
-    function(user, done) {
-      const token = utils.generateToken(64);
-      Token.save(token, { userId: user.id }, function(err) {
-        if (err) { return done(err); }
-        return done(null, token);
-      });
-    }
-  ));
 
