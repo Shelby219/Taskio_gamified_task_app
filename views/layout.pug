@@ -49,7 +49,7 @@ html
 
 
   footer
-    script(type='text/javascript' src='/../public/script.js')
+    script(type='text/javascript' src='./script.js')
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js")
     script(src="https://kit.fontawesome.com/7edf7d6684.js")
@@ -84,12 +84,12 @@ html
               new Chart(document.getElementById("habitChart"), {
                 type: 'horizontalBar',
                 data: {
-                  labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                  labels: ["Health", "Experience", "Points"],
                   datasets: [
                     {
                       label: "Population (millions)",
-                      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                      data: [2478,5267,734,784,433]
+                      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                      data: [2478,5267,433]
                     }
                   ]
                 },
@@ -97,7 +97,8 @@ html
                   legend: { display: false },
                   title: {
                     display: true,
-                    text: 'Predicted world population (millions) in 2050'
-                  }
+                    text: ''
+                  },
+                   responsive: false
                 }
             });

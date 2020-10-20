@@ -24,22 +24,21 @@ if(process.env.NODE_ENV !== 'production') {
 
 const app = express();
 app.use(cors());
-app.use(cookieParser())
+app.use(cookieParser());
+app.use(bodyParser.json())
 app.use(express.json());
 app.use(express.urlencoded({
     extended:true   
 }));
 //app.use(fetch)
-// override with POST having ?_method=DELETE
-app.use(methodOverride('_method'))
 
 // serve files from the public directory
-app.use(express.static('public'))
+
 
 const path = require('path');
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'pug');
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressSession({
     secret: "dogs",
     resave: false,
@@ -50,9 +49,10 @@ app.use(expressSession({
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
-//app.engine('handlebars', exphbs());
-//app.set('view engine', 'handlebars');
 
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
 
 
 
@@ -71,10 +71,6 @@ mongoose.connect(
             console.log('Connected to database!');
         }
 });
-
-
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
 
 
 require("./middleware/passport");

@@ -7,7 +7,7 @@ const Task = new Schema({
         type: String
        
     },
-    description: {
+    Notes: {
         type: String
         
     },
@@ -20,11 +20,9 @@ const Task = new Schema({
     },
     create_date: {
         type: Date
-    
     },
     modified_date: {
-        type: Date
-      
+        type: Date 
     },
     due_date: {
         type: Date
@@ -37,9 +35,12 @@ const Task = new Schema({
         type: Boolean,
         default: false
     },
-    category: {
+    difficulty: {
         type: String
-      }
+      },
+    category: {
+          type: String
+        }
 });
 
 Task.methods.findCompleted  = function findCompleted (cb) {

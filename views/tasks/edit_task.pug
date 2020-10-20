@@ -4,21 +4,34 @@ block content
 
   h2 Edit Task 
 
-  form.form-signin(action='/tasks/Edit', method='POST')
+  form.form-signin(action=`/tasks/edit/${id}?_method=PUT`, method='POST')
     p
+      
       | Name: 
       input.form-control(type='text', name='name', value='')
-      | Description: 
-      input.form-control(type='text', name='description', value='')
+      | Notes: 
+      input.form-control(type='text', name='notes', value='')
+      | Difficulty: 
+      select.form-control(type='text', name='difficulty')
+              option(value='') -- Select --
+              option(value='Trivial', ) Trivial
+              option(value='Easy', ) Easy 
+              option(value='Medium', ) Medium
+              option(value='Mega', ) Mega
       | Category: 
       select.form-control(type='text', name='category')
               option(value='') -- Select --
-              option(value='Task', ) Task
-              option(value='To Do', ) To Do
-              option(value='Habit', ) Habit
+              option(value='Work', ) Work
+              option(value='Exercise', ) Exercise 
+              option(value='Health', ) Health 
+              option(value='School', ) School
+              option(value='Chores', ) Chores
+              option(value='Creativity', ) Creative
+              option(value='General', ) General
       | Due Date:
       input.form-control(type='date', name='due_date', value='') 
       | Repeating:
       input.form-control(type='checkbox', name='repeating', value='yes') 
       |
+      input(type="hidden" name="_method" value="PUT")
     input.btn.btn-lg.btn-primary.btn-block(type='submit', value='Update Task')

@@ -17,8 +17,8 @@ router.get('/create', taskNew);
 router.post('/create', makeTask);
 
 // UPDATE
-router.get('/edit', taskEdit);
-router.put('/:id', changeTask);
+router.get('/edit/:id', taskEdit);
+router.put('/edit/:id', changeTask);
 
 // READ
 router.get('/dashboard', checkAuthentication, getTasks);       

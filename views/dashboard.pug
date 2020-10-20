@@ -1,15 +1,34 @@
 extends layout
 
-  
+
 
 block content
- 
+
   .container-fluid
     .row
       .col-sm-3.col-md-2.sidebar
         h3 Rewards
-
+        img.pixel(src='/images/trophy.png' alt='trophy' width='60px')
+        img.pixel(src='/images/bolt.png' alt='bolt' width='60px')
+        img.pixel(src='/images/coin.png' alt='coin' width='60px')
+        img.pixel(src='/images/heart.png' alt='heart' width='60px')
+        img.pixel(src='/images/potion.png' alt='potion' width='60px')
+        img.pixel(src='/images/shield.png' alt='shield' width='60px')
+        img.pixel(src='/images/shroom.png' alt='shroom' width='60px')
+        img.pixel(src='/images/start.png' alt='start' width='60px')
+        img.pixel(src='/images/sword.png' alt='sword' width='60px')
+        
       .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2
+        div.jumbotron
+          .container
+            .row
+              .col-1
+                img.user-dash-items(src=`${user.avatar}` width='100px')
+              .col-1
+                p.user-dash-items=user.email
+              .col-5
+                canvas.user-dash-items(id="habitChart" width="200" height="200")
+                p This is not fully configured just in place
         h2.title= title
         div
           a.btn.btn-primary(href='/tasks/create') Add New  
@@ -21,23 +40,23 @@ block content
 
 
             .col-xs-6.col-sm-3.placeholder
-              canvas(id="habitChart" width="200" height="200")
-              p This is not fully configured just in place
-
+            
           form.form-inline.mt-2.mt-md-0
             input.form-control.mr-sm-2(type='text', placeholder='Search', aria-label='Search')
             button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
 
-
+       
           h2.sub-header Tasks
+  
           .table-responsive
             table.table.table-striped
               thead
                 tr
                   th Category
+                  th Difficulty
                   th Name
                   th Due Date
-                  th Description
+                  th Notes
                   th Repeating
                   th 
                   th
@@ -46,21 +65,23 @@ block content
               each task in tasks
                 tr
                   td=task.category
+                   td=task.difficulty
                   td
                     a.btn.btn-primary(href='/tasks/'+task._id)=task.name
                   if task.due_date !== undefined
                     td=task.due_date.toDateString()
-                  td=task.description
+                  td=task.notes
                   td=task.repeating
                   td
                     form
-                      button.btn.btn-primary Mark Complete
+                      button.btn.btn-primary(id='completed', value=task._id)  Mark Complete
                     td
-                      a.btn.btn-primary(href='/tasks/edit') Edit  
+                      a.btn.btn-primary(href='/tasks/edit/'+ task._id) Edit  
                   td
                      button.btn.btn-primary(id='delete', value=task._id) Delete
         
   script.
+     // delete fetch function for delete method
     const del = document.getElementById('delete')
     del.addEventListener('click', 
     function () {  
@@ -74,6 +95,21 @@ block content
             })
           .catch(err => console.log(err))
       })
-    
+
+      // mark completed boolean tru
+    const completed = document.getElementById('completed')
+      del.addEventListener('click', 
+      function () {  
+        fetch('http://localhost:3009/tasks/'+ completed.value, {    
+          method: 'GET'
+          })  
+          .then(res => {if (res.ok) return res.json()  })
+          .then(data => {    
+              console.log(data)    
+              window.location.reload()  
+              })
+            .catch(err => console.log(err))
+        })
+      
               
    
