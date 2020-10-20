@@ -224,13 +224,13 @@ body {
   border-radius: 10px;
 }
 .home-div {
-  background-color: #2f95b4;
+  background-color: #e5cafa;
   padding: 50px;
   width: 600px;
   height: 400px;
   margin: 10px;
   line-height: 20px;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 2em;
   text-align: center;

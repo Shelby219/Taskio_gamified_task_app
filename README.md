@@ -71,9 +71,21 @@ Taskio is your task tracking friend with a kick of motivation of earning points!
 - Figma 
 
 ### Planning
+
+#### Trello
 ![Trello](docs/Trello.png)
+
+#### Notes
 ![Notes](docs/Notes.png)
 
+#### Wireframe
+![Wireframes](docs/Wireframe.png)
+
 ### Screen Shots
+![Screen Shot](docs/shot1.png)
+![Screen Shot](docs/shot2.png)
+![Screen Shot](docs/shot3.png)
+![Screen Shot](docs/shot4.png)
+![Screen Shot](docs/shot5.png)
 
 
