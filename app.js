@@ -15,7 +15,8 @@ const pageRouter = require("./routes/page_routes");
 const authRouter = require("./routes/auth_routes");
 
 
-const port = process.env.port || 3009;
+//
+const port = process.env.PORT || 3009;
 // If we are not running in production, load our local .env
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
@@ -50,10 +51,8 @@ app.use(expressSession({
 }));
 
 
-
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
-
 
 
 const dbConn =  process.env.MONGODB_URI ||  'mongodb://localhost/task_app'
@@ -66,7 +65,7 @@ mongoose.connect(
     },
     (err) => {
         if (err) {
-            console.log('Error connecting to database', err);
+            console.log(`Error connecting to database ${dbConn}`, err);
         } else {
             console.log('Connected to database!');
         }
