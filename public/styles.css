@@ -33,7 +33,7 @@ body {
 .fa-hourglass-half , .fa-gem,
 .fa-clipboard-check, .fa-clipboard-list{
   color: yellow !important;
-  text-decoration: none;
+  text-decoration: none; 
   padding: 20px; 
 }
 .nav-link {
@@ -104,7 +104,7 @@ body {
 
 .sidebar {
   margin-top: -75px;
-  background-color: #f8fafb !important;
+  background-color: #FEFEFE !important;
   box-shadow: 0 0 15px 0 grey;
 
 }
@@ -120,7 +120,7 @@ body {
     padding: 20px;
     overflow-x: hidden;
   /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f8fafb;
+    background-color: #FEFEFE;
   
   }
 }
@@ -255,8 +255,8 @@ body {
   justify-content: space-evenly;
   background-color: #e5cafa !important;
   box-shadow: 0 0 15px 0 grey;
-  width: 500px;
-  height: 300px;
+  width: 400px;
+  height: 600px;
 }
 .child-task {
   display: flex;
