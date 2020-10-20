@@ -56,8 +56,6 @@ const updateTask = function (req) {
 // update completed   
 // returns a query
 const updateCompleted = function (req) {
-    console.log(req.body)
-    console.log(req.params.id)
     let completed = req.body.completed 
     if ( completed == 'yes') {
         return Task.findByIdAndUpdate(req.params.id, {$set: {completed: true }}, {
@@ -68,11 +66,47 @@ const updateCompleted = function (req) {
     }
 };
 
+//set points based on completed tasks
+function setpoints (tasks) {
+    //iterate over tasks
+    let points = 0
+    for(let t of tasks){
+        if (t.completed == true){
+            //console.log(t)
+            points += 1
+        }
+      }
+    return points;
+}
+
+//get timing out tasks
+function timingOut() {
+    const date = Date.now()
+    const tom = new Date().getDate()+1;
+
+    console.log(date - tom)
+    // const hour = 1000 * 60 * 60;
+    // const anHourAgo = date - hour;
+    // date > anHourAgo;
+
+    // let timing = 0
+    // for(let t of tasks){
+    //     if (t.due_date == true){
+    //         console.log(t)
+    //         timing += 1
+    //     }
+    //   }
+    // return timing;
+
+}
+timingOut()
+
 module.exports = {
     getAllTasks,
     getTaskById,
     addTask,
     deleteTask,
     updateTask,
-    updateCompleted
+    updateCompleted,
+    setpoints
 }

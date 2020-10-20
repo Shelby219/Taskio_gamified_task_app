@@ -3,7 +3,7 @@ html
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")  
-    title Task App
+    title Taskio
     
     style
       include ../public/styles.css
@@ -12,7 +12,8 @@ html
 
   body
     nav.navbar.navbar-expand-md.mb-4
-      a.navbar-brand(href='#') Task..
+      a.navbar-brand(href='#') Taskio
+    
       button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarCollapse.collapse.navbar-collapse
@@ -40,7 +41,7 @@ html
         i.fas.fa-hourglass-half 
         p.gem-time 0
         i.far.fa-gem 
-        p.gem-time 0
+        p.gem-time=points
       else   
         a.btn.btn-primary(href='/user/register') 
                   | Get Started Today!
@@ -56,31 +57,7 @@ html
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
  
     script.
-      var ctx = document.getElementById("taskChart").getContext('2d');
-              var chart = new Chart(ctx, {
-                  type: 'pie',
-                  data: {
-                      labels: ["Current", "Completed"],
-                      datasets: [{
-                          label: 'Number of votes',
-                          data: [34, 14],
-                          backgroundColor: ['green', 'blue'],
-                          borderColor: ['green', 'blue'],
-                          borderWidth: 1
-                      }]
-                  },
-                  options: {
-                      title: {
-                          display: true,
-                          text: "Tasks"
-                      },
-                      legend: {
-                          position: 'bottom'
-                      },
-                      responsive: false,
-                  }
-              });
-
+     
               new Chart(document.getElementById("habitChart"), {
                 type: 'horizontalBar',
                 data: {
@@ -89,7 +66,7 @@ html
                     {
                       label: "Population (millions)",
                       backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-                      data: [2478,5267,433]
+                      data: [15,75,45]
                     }
                   ]
                 },
@@ -102,3 +79,6 @@ html
                    responsive: false
                 }
             });
+
+
+     

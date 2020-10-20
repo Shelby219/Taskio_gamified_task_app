@@ -5,7 +5,8 @@ const {
     addTask,
     deleteTask,
     updateTask,
-    updateCompleted
+    updateCompleted,
+    setpoints
 } = require('../utils/tasks_utilities');
 
 const getTasks = function (req, res) {
@@ -18,34 +19,19 @@ const getTasks = function (req, res) {
                 error: err.message
             });
         }
-        
-       // console.log(getPoints(tasks))
+
+        let points = (setpoints(tasks))
+      
         res.render('dashboard.pug', { 
-            title: 'All Tasks', 
+            title: 'Task Quests', 
             tasks: tasks,
-            user: req.user
+            user: req.user,
+            points: points
+
             })
     })
 };
 
-function setCategories (tasks){
-    let habits = []
-    let todo = []
-    let task = []
- 
-  //  if task.category == "Habit" 
- }
-function setpoints (tasks) {
-    //iterate over tasks
-    //if category then get points certain amount
-
-}
- 
-//const getPoints = function (tasks){
-//     let completed = tasks.find({completed: true})
-//     return completed;
-
-// }
 
 const getTask = function (req, res) {
     // execute the query from getTaskById
@@ -78,16 +64,16 @@ const makeTask = function (req, res) {
         res.send(err))
 };
 
-const removeTask = function (req, res) {
-    deleteTask(req.params.id).exec((err) => {
+const removeTask = async function (req, res) {
+    deleteTask(req.params.id).exec(async (err) => {
         if (err) {
             res.status(500);
             return res.json({
                 error: err.message
             });
         }
-        res.sendStatus(204);
-        res.send('Success');
+        //res.sendStatus(204);
+        await res.redirect("/tasks/dashboard")
     });
 };
 

@@ -7,7 +7,7 @@ const Task = new Schema({
         type: String
        
     },
-    Notes: {
+    notes: {
         type: String
         
     },
