@@ -65,14 +65,14 @@ block content
                   if task.completed != true
                     td
                       form(action=`/tasks/completed/${task._id}?_method=PUT`, method='POST')
-                        button.btn.btn-primary(id='completed', name='completed' value='yes')  Mark Complete
+                        button.btn.btn-warning(id='completed', name='completed' value='yes')  Mark Complete
                   else
                     td
                       p.btn.btn-success Completed
                   td
-                      a.btn.btn-primary(href='/tasks/edit/'+ task._id) Edit  
+                      a.btn.btn-info(href='/tasks/edit/'+ task._id) Edit  
                   td
-                     button.btn.btn-primary(id='delete', value=task._id) Delete
+                     button.btn.btn-danger(id='delete', value=task._id) Delete
         
   script.
   
