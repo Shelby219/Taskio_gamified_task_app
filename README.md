@@ -2,7 +2,8 @@
 
 #### Alex Qiang & Shelby El-rassi, Flex-track 2020
 
-# Task App
+## Task App
+![Pixel](public/images/bolt.png)
 -----
 
 * [Task App]( https://sleepy-falls-92191.herokuapp.com/) - Live website
@@ -54,4 +55,3 @@
 ### Screen Shots
 
 
-![Pixel](public/images/bolt.png)
