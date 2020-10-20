@@ -72,7 +72,7 @@ Taskio is your task tracking friend.
 - Figma 
 
 ### Planning
-![Trello](docs/trello.png)
+![Trello](docs/Trello.png)
 ![Notes](docs/Notes.png)
 
 ### Screen Shots
