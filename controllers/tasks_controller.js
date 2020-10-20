@@ -31,7 +31,7 @@ const getTasks = function (req, res) {
         let comTally = (comTallyT(tasks))
       
         res.render('dashboard.pug', { 
-            title: 'Task Quests', 
+            title: 'Your Tasks', 
             tasks: tasks,
             user: req.user,
             points: points,
@@ -119,7 +119,7 @@ const changeCompleted = function (req, res) {
                 error: err.message
             });
         }
-       
+        
         res.status(200);
         res.redirect('/tasks/dashboard');
     });

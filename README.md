@@ -13,7 +13,7 @@
 
 ## Problem it Solves
 
-Every task tracking and reminders. A place to keep to do list task together. 
+List making, note taking reminders and scribbles are common with a lot of people. Whilst just another list/task tracking app is an ok idea, a gamified version just adds a modern day fun spin on a standard task tracker.
 
 ## Initial Idea
 
@@ -21,9 +21,8 @@ Everyday Task Tracker with a gamified twist. When the need for keeping task list
 
 ## Description
 
-Taskio is your task tracking friend.
+Taskio is your task tracking friend with a kick of motivation of earning points! 
 
-### Purpose
 
 ### Current Features
 
@@ -33,7 +32,7 @@ Taskio is your task tracking friend.
 - Add new tasks, edit and delete
 - Mark Tasks as Completed which accumulates points
 - View Total Points on Dashboard
-
+- View total and completed task tally on nav bar
 
 ### Future Features
 
@@ -42,7 +41,8 @@ Taskio is your task tracking friend.
 - Advance Task functions, future dating, repeating, categories.
 - Advanced User account details
 - Profile image upload file
-- Oauth with account access 
+- Oauth with account access
+- Show total tasks that are getting close to due date 
 
 ### Tech Stack
 
