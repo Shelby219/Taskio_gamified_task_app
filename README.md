@@ -2,6 +2,7 @@
 
 #### Alex Qiang & Shelby El-rassi, Flex-track 2020
 
+![Pixel](public/images/bolt.png)
 # Task App
 -----
 
@@ -54,4 +55,3 @@
 ### Screen Shots
 
 
-![Pixel](public/images/bolt.png)
