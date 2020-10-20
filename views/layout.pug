@@ -4,10 +4,11 @@ html
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")  
     title Task App
-
+    
     style
       include ../public/styles.css
       include ../public/bootstrap.min.css
+    
 
   body
     nav.navbar.navbar-expand-md.mb-4
@@ -43,13 +44,61 @@ html
       else   
         a.btn.btn-primary(href='/user/register') 
                   | Get Started Today!
-  #page
+ 
   block content
 
-      
 
-footer
-  script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
-  script(src='../public/script.js')
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js")
-  script(src="https://kit.fontawesome.com/7edf7d6684.js")
+  footer
+    script(type='text/javascript' src='./script.js')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js")
+    script(src="https://kit.fontawesome.com/7edf7d6684.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+ 
+    script.
+      var ctx = document.getElementById("taskChart").getContext('2d');
+              var chart = new Chart(ctx, {
+                  type: 'pie',
+                  data: {
+                      labels: ["Current", "Completed"],
+                      datasets: [{
+                          label: 'Number of votes',
+                          data: [34, 14],
+                          backgroundColor: ['green', 'blue'],
+                          borderColor: ['green', 'blue'],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      title: {
+                          display: true,
+                          text: "Tasks"
+                      },
+                      legend: {
+                          position: 'bottom'
+                      },
+                      responsive: false,
+                  }
+              });
+
+              new Chart(document.getElementById("habitChart"), {
+                type: 'horizontalBar',
+                data: {
+                  labels: ["Health", "Experience", "Points"],
+                  datasets: [
+                    {
+                      label: "Population (millions)",
+                      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                      data: [2478,5267,433]
+                    }
+                  ]
+                },
+                options: {
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: ''
+                  },
+                   responsive: false
+                }
+            });

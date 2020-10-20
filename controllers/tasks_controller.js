@@ -1,3 +1,4 @@
+const task = require('../models/task');
 const {
     getAllTasks,
     getTaskById,
@@ -16,6 +17,7 @@ const getTasks = function (req, res) {
                 error: err.message
             });
         }
+        
        // console.log(getPoints(tasks))
         res.render('dashboard.pug', { 
             title: 'All Tasks', 
@@ -25,6 +27,13 @@ const getTasks = function (req, res) {
     })
 };
 
+function setCategories (tasks){
+    let habits = []
+    let todo = []
+    let task = []
+ 
+  //  if task.category == "Habit" 
+ }
 function setpoints (tasks) {
     //iterate over tasks
     //if category then get points certain amount
@@ -80,11 +89,16 @@ const removeTask = function (req, res) {
 };
 
 function taskEdit(req, res) {
-    res.render("tasks/edit_task.pug");
+    let id = req.params.id
+
+    res.render("tasks/edit_task.pug", { 
+        id: id 
+        });
 }
 
 const changeTask = function (req, res) {
     // execute the query from updateTask
+    console.log("ghfgh")
     updateTask(req).exec((err, task) => {
         if (err) {
             res.status(500);
@@ -92,9 +106,8 @@ const changeTask = function (req, res) {
                 error: err.message
             });
         }
+       
         res.status(200);
-        
-        res.send('Success');
         res.redirect('/tasks/dashboard');
     });
 };

@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser')
 const expressSession = require('express-session')
 const MongoStore = require('connect-mongo')(expressSession);
 const methodOverride = require('method-override')
-const flash = require("connect-flash")
+const fetch = require('node-fetch')
 
 const taskRouter = require('./routes/tasks_routes');
 const pageRouter = require("./routes/page_routes");
@@ -24,21 +24,21 @@ if(process.env.NODE_ENV !== 'production') {
 const app = express();
 app.use(cors());
 app.use(cookieParser());
-app.use(flash());
+app.use(bodyParser.json())
 app.use(express.json());
 
 app.use(express.urlencoded({
     extended:true   
 }));
-app.use(bodyParser.json());
-// override with POST having ?_method=DELETE
-app.use(methodOverride('_method'))
+//app.use(fetch)
+
+// serve files from the public directory
 
 
 const path = require('path');
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'pug');
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressSession({
     secret: "dogs",
     resave: false,
@@ -46,9 +46,12 @@ app.use(expressSession({
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
-    
-//app.engine('handlebars', exphbs());
-//app.set('view engine', 'handlebars');
+
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
+
+
 
 const dbConn =  process.env.MONGODB_URI ||  'mongodb://localhost/task_app'
 
@@ -65,10 +68,6 @@ mongoose.connect(
             console.log('Connected to database!');
         }
 });
-
-
-// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-// app.set('view engine', 'handlebars');
 
 
 require("./middleware/passport");
