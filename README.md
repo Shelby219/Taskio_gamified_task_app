@@ -1,8 +1,7 @@
-## Express Hackathon
+## Taskio
 
-#### Alex Qiang & Shelby El-rassi, Flex-track 2020
+#### Alex Qiang & Shelby El-rassi, Flex-track 2020, Express Hackathon
 
-## Task App
 ![Pixel](public/images/bolt.png)
 -----
 
