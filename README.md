@@ -73,6 +73,7 @@ Taskio is your task tracking friend with a kick of motivation of earning points!
 ### Planning
 ![Trello](docs/Trello.png)
 ![Notes](docs/Notes.png)
+![Wireframes](docs/Wireframe.png)
 
 ### Screen Shots
 
