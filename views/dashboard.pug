@@ -8,15 +8,15 @@ block content
     .row
       .col-sm-3.col-md-2.sidebar
         div.pixel-con
-          img.pixel(src='/images/trophy.png' alt='trophy' width='60px')
-          img.pixel(src='/images/bolt.png' alt='bolt' width='60px')
-          img.pixel(src='/images/coin.png' alt='coin' width='60px')
-          img.pixel(src='/images/heart.png' alt='heart' width='60px')
-          img.pixel(src='/images/potion.png' alt='potion' width='60px')
-          img.pixel(src='/images/shield.png' alt='shield' width='60px')
-          img.pixel(src='/images/shroom.png' alt='shroom' width='60px')
-          img.pixel(src='/images/start.png' alt='start' width='60px')
-          img.pixel(src='/images/sword.png' alt='sword' width='60px')
+          img.pixel(src='/images/trophy.png' alt='trophy' width='70px')
+          img.pixel(src='/images/bolt.png' alt='bolt' width='70px')
+          img.pixel(src='/images/coin.png' alt='coin' width='70px')
+          img.pixel(src='/images/heart.png' alt='heart' width='70px')
+          img.pixel(src='/images/potion.png' alt='potion' width='70px')
+          img.pixel(src='/images/shield.png' alt='shield' width='70px')
+          img.pixel(src='/images/shroom.png' alt='shroom' width='70px')
+          img.pixel(src='/images/start.png' alt='start' width='70px')
+          img.pixel(src='/images/sword.png' alt='sword' width='70px')
           
       .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2
         .container-dash
@@ -48,7 +48,7 @@ block content
                   th Due Date
                   th Notes
                   th Repeating
-                  th 
+                  th Completed
                   th
                   th
               tbody
@@ -57,7 +57,7 @@ block content
                   td=task.category
                    td=task.difficulty
                   td
-                    a.btn.btn-primary(href='/tasks/'+task._id)=task.name
+                    a.btn-sm.btn-primary(href='/tasks/'+task._id)=task.name
                   if task.due_date !== undefined
                     td=task.due_date.toDateString()
                   td=task.notes
@@ -65,14 +65,14 @@ block content
                   if task.completed != true
                     td
                       form(action=`/tasks/completed/${task._id}?_method=PUT`, method='POST')
-                        button.btn.btn-warning(id='completed', name='completed' value='yes')  Mark Complete
+                        button.btn-sm.btn-warning(id='completed', name='completed' value='yes')  Mark Complete
                   else
                     td
-                      p.btn.btn-success Completed
+                      p.fas.fa-check 
+                  td   
+                      a.far.fa-edit(href='/tasks/edit/'+ task._id)
                   td
-                      a.btn.btn-info(href='/tasks/edit/'+ task._id) Edit  
-                  td
-                     button.btn.btn-danger(id='delete', value=task._id) Delete
+                      button.far.fa-trash-alt(id='delete', value=task._id)
         
   script.
   
