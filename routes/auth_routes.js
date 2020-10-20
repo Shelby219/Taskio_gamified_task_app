@@ -1,16 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const {authRedirect} = require("../middleware/auth_middleware")
+const {authRedirect, checkAuthentication} = require("../middleware/auth_middleware")
 const passport = require("passport")
-
-
 
 const {registerCreate, 
     registerNew, 
     logOut, 
     loginNew,
-    // issueCookie
-    
+    editUser,
+    editUserReq,
+    removeUser
     } = require('../controllers/auth_controller')
 
 
@@ -37,6 +36,13 @@ router.post('/login', passport.authenticate('local', {
     }
     res.redirect('/tasks/dashboard')
 })
+
+router.get("/edit", checkAuthentication, editUser)
+router.patch("/edit", editUserReq)
+
+router.delete("/edit", removeUser)
+
+
 
 // debugging request
 
