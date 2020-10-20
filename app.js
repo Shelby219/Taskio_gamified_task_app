@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require("passport")
 const exphbs = require('express-handlebars');
-const rememberMe = require('passport-remember-me')
 const cookieParser = require('cookie-parser')
 const expressSession = require('express-session')
 const MongoStore = require('connect-mongo')(expressSession);
@@ -27,6 +26,7 @@ app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.json())
 app.use(express.json());
+
 app.use(express.urlencoded({
     extended:true   
 }));
@@ -43,9 +43,6 @@ app.use(expressSession({
     secret: "dogs",
     resave: false,
     saveUninitialized: false,
-    cookie: {
-        expires: 6000000
-    },
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
@@ -76,7 +73,7 @@ mongoose.connect(
 require("./middleware/passport");
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(passport.authenticate('remember-me'));
+
 
 
 app.use('/tasks', taskRouter);
