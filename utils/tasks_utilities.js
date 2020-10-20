@@ -22,7 +22,8 @@ const addTask = function (req) {
     const date = Date.now()
 	let task = {
 		name: req.body.name,
-        description: req.body.description,
+        notes: req.body.notes,
+        difficulty: req.body.difficulty,
         category: req.body.category,
         repeating: req.body.repeating,
 		create_date: date,
