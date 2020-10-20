@@ -52,6 +52,7 @@ Taskio is your task tracking friend with a kick of motivation of earning points!
 - Node JS
 - Mongoose
 - Pug JS
+- Chart JS
 - HTML
 - CSS
 - Node Packages
@@ -69,6 +70,9 @@ Taskio is your task tracking friend with a kick of motivation of earning points!
 - Trello
 - Google Docs
 - Figma 
+
+
+### Challenges
 
 ### Planning
 
