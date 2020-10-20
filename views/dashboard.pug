@@ -19,16 +19,14 @@ block content
         img.pixel(src='/images/sword.png' alt='sword' width='60px')
         
       .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2
-        div.jumbotron
-          .container
-            .row
-              .col-1
-                img.user-dash-items(src=`${user.avatar}` width='100px')
-              .col-1
+        .container-dash
+              .child-dash
+                img.avatar(src=`${user.avatar}` )
+              .child-dash
                 p.user-dash-items=user.email
-              .col-5
+              .child-dash
                 canvas.user-dash-items(id="habitChart" width="200" height="200")
-                p This is not fully configured just in place
+              
         h2.title= title
         div
           a.btn.btn-primary(href='/tasks/create') Add New  

@@ -37,14 +37,32 @@
 
 .jumbotron{
   background-color: #e5cafa !important;
- 
+  box-shadow: 0 0 15px 0 grey;
+  
 }
-.user-dash-items {
- 
+.container-dash {
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  background-color: #e5cafa !important;
+  box-shadow: 0 0 15px 0 grey;
+  
+}
+.child-dash {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
 }
 .pixel {
   margin: 15px;
   padding: 10px;
+}
+.avatar {
+  width: 200px;
+  height: 200px;
+  clip-path: circle(50% at 50% 50%);
+
 }
 
 #taskChart, #todoChart, #habitChart {
