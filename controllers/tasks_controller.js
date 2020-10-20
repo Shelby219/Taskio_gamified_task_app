@@ -31,7 +31,7 @@ const getTasks = function (req, res) {
         let comTally = (comTallyT(tasks))
       
         res.render('dashboard.pug', { 
-            title: 'Task Quests', 
+            title: 'Your Tasks', 
             tasks: tasks,
             user: req.user,
             points: points,
