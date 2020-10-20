@@ -1,5 +1,6 @@
 const UserModel = require("../models/user");
 const passport = require('passport');
+const {updateUser, deleteUser} = require("../utils/auth_utilities")
 
 function registerNew(req, res) {
     res.render("auth/register.pug");
@@ -43,12 +44,51 @@ function loginNew(req, res) {
     
 // }
 
+function editUser(req, res) {
+    user = req.session.user
+    res.render("auth/edit.pug", { 
+        user: user
+        });
+}
+
+function editUserReq(req, res) {
+    updateUser(req).exec((err, user) => {
+        if (err) {
+            res.status(500);
+            return res.json({
+                error: err.message
+            });
+        }
+        res.status(200);
+        res.redirect('/tasks/dashboard');
+    })
+
+}
+
+async function removeUser(req, res) {
+    console.log("hit via route in controller")
+    console.log(req.session.passport.user)
+    try{deleteUser(req.session.passport.user).exec(async (err) => {
+        if (err) {
+            res.status(500);
+            return res.json({
+                error: err.message
+            });
+        }
+        else {res.redirect("/home")}
+    })}
+    
+    catch(err) {console.log(err)}
+
+}
 
 module.exports = {
     registerNew,
     registerCreate,
     logOut,
     loginNew,
+    editUser,
+    editUserReq,
+    removeUser
     // loginCreate
-    // issueCookie
 }
