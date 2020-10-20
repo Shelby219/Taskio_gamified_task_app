@@ -4,7 +4,8 @@ const {
     getTaskById,
     addTask,
     deleteTask,
-    updateTask
+    updateTask,
+    updateCompleted
 } = require('../utils/tasks_utilities');
 
 const getTasks = function (req, res) {
@@ -40,7 +41,7 @@ function setpoints (tasks) {
 
 }
  
-     // const getPoints = function (tasks){
+// const getPoints = function (tasks){
 //     let completed = tasks.find({completed: true})
 //     return completed;
 
@@ -92,7 +93,6 @@ const removeTask = function (req, res) {
 
 function taskEdit(req, res) {
     let id = req.params.id
-
     res.render("tasks/edit_task.pug", { 
         id: id,
         user: req.user
@@ -101,7 +101,6 @@ function taskEdit(req, res) {
 
 const changeTask = function (req, res) {
     // execute the query from updateTask
-    console.log("ghfgh")
     updateTask(req).exec((err, task) => {
         if (err) {
             res.status(500);
@@ -115,6 +114,23 @@ const changeTask = function (req, res) {
     });
 };
 
+const changeCompleted = function (req, res) {
+    // execute the query from updateCompleted
+    updateCompleted(req).exec((err, task) => {
+        if (err) {
+            res.status(500);
+            return res.json({
+                error: err.message
+            });
+        }
+       
+        res.status(200);
+        res.redirect('/tasks/dashboard');
+    });
+};
+
+
+
 module.exports = {
     getTasks,
     getTask,
@@ -122,5 +138,6 @@ module.exports = {
     removeTask,
     changeTask,
     taskNew,
-    taskEdit
+    taskEdit,
+    changeCompleted
 };

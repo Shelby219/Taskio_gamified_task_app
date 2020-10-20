@@ -50,10 +50,26 @@ const updateTask = function (req) {
     });
 };
 
+// update completed   
+// returns a query
+const updateCompleted = function (req) {
+    console.log(req.body)
+    console.log(req.params.id)
+    let completed = req.body.completed 
+    if ( completed == 'yes') {
+        return Task.findByIdAndUpdate(req.params.id, {$set: {completed: true }}, {
+            new: true
+        }) ;
+    } else {
+        req.error = "No"
+    }
+};
+
 module.exports = {
     getAllTasks,
     getTaskById,
     addTask,
     deleteTask,
-    updateTask
+    updateTask,
+    updateCompleted
 }

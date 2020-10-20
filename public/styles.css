@@ -49,7 +49,7 @@
   box-shadow: 0 0 15px 0 grey;
   
 }
-.child-dash {
+.child-dash{
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -65,12 +65,7 @@
 
 }
 
-#taskChart, #todoChart, #habitChart {
-margin: 75px;
-}
-h2 {
-  text-align: center;
-}
+
 
 body {
   height: 125vh;
@@ -84,7 +79,6 @@ body {
 
 .title {
   margin-top: 50px;
-  
 }
 /*
  * Global add-ons
@@ -225,6 +219,7 @@ body {
  */
 
 
+
 .container-home {
   height: 100%;
     padding: 0;
@@ -261,3 +256,27 @@ body {
    margin: 50px;
    line-height: 1em;
  }
+
+
+
+/*
+ * TASK ITEM
+ */
+
+
+.container-task {
+  text-align: center;
+  margin: auto;;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  background-color: #e5cafa !important;
+  box-shadow: 0 0 15px 0 grey;
+  width: 500px;
+  height: 300px;
+}
+.child-task {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
