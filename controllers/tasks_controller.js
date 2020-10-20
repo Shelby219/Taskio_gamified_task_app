@@ -119,7 +119,7 @@ const changeCompleted = function (req, res) {
                 error: err.message
             });
         }
-       
+        
         res.status(200);
         res.redirect('/tasks/dashboard');
     });
