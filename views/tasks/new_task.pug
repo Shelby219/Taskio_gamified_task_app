@@ -2,7 +2,7 @@ extends ../layout
 
 block content
 
-  h2 New Task 
+  h2.title-page New Task 
 
   form.form-signin(action='/tasks/create', method='POST')
     p
@@ -13,9 +13,9 @@ block content
       | Difficulty: 
       select.form-control(type='text', name='difficulty')
               option(value='') -- Select --
-              option(value='Trivial', ) Trivial
-              option(value='Easy', ) Easy 
-              option(value='Medium', ) Medium
+              option(value='Niggling', ) Niggling
+              option(value='Easy Peasy', ) Easy Peasy
+              option(value='Middle', ) Middle 
               option(value='Mega', ) Mega
       | Category: 
       select.form-control(type='text', name='category')

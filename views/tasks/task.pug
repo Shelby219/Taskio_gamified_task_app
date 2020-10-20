@@ -3,11 +3,14 @@ extends ../layout
 block content
 
     .container-fluid
-        h1.title-text= title
-        div
-          div
-              p=task.name
-              p=task.description
-              p=task.due_date.toDateString()
-              p=task.repeating
+        
+        div.container-task
+          div.child-task
+              
+                h2=task.name 
+                p=task.description
+                p=task.due_date.toDateString()
+                p=task.difficulty
+                p=task.category
+                p=task.repeating
 
