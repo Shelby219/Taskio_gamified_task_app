@@ -3,11 +3,19 @@ extends ../layout
 block content
 
     .container-fluid
-        h1.title-text= title
-        div
-          div
-              p=task.name
-              p=task.description
-              p=task.due_date.toDateString()
-              p=task.repeating
-
+        
+        div.container-task
+          div.child-task
+            div.form-group Name
+                p.form-control=task.name 
+            div.form-group Notes
+                p.form-control=task.notes
+            div.form-group Due Date
+                p.form-control=task.due_date.toDateString()
+            div.form-group Difficulty
+                p.form-control=task.difficulty
+            div.form-group Category
+                p.form-control=task.category
+            div.form-group Repeating
+                p.form-control=task.repeating
+                

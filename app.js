@@ -37,8 +37,11 @@ app.use(express.urlencoded({
 
 const path = require('path');
 app.set('views', path.join(__dirname, '/views'));
+
 app.set('view engine', 'pug');
+// static files
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(expressSession({
     secret: "dogs",
     resave: false,

@@ -4,12 +4,20 @@ const {
     getTaskById,
     addTask,
     deleteTask,
-    updateTask
+    updateTask,
+    updateCompleted,
+    setpoints,
+    comTallyT,
+    taskTallyT
 } = require('../utils/tasks_utilities');
 
 const getTasks = function (req, res) {
     // execute the query from getAllTask
+    
     getAllTasks(req)
+    .sort({
+        due_date: 1
+    })
     .exec((err, tasks) => {
         if (err) {
             res.status(500);
@@ -17,34 +25,23 @@ const getTasks = function (req, res) {
                 error: err.message
             });
         }
-        
-       // console.log(getPoints(tasks))
+
+        let points = (setpoints(tasks))
+        let allTally = (taskTallyT(tasks))
+        let comTally = (comTallyT(tasks))
+      
         res.render('dashboard.pug', { 
-            title: 'All Tasks', 
+            title: 'Your Tasks', 
             tasks: tasks,
-            user: req.user
+            user: req.user,
+            points: points,
+            all: allTally,
+            com: comTally
+
             })
     })
 };
 
-function setCategories (tasks){
-    let habits = []
-    let todo = []
-    let task = []
- 
-  //  if task.category == "Habit" 
- }
-function setpoints (tasks) {
-    //iterate over tasks
-    //if category then get points certain amount
-
-}
- 
-     // const getPoints = function (tasks){
-//     let completed = tasks.find({completed: true})
-//     return completed;
-
-// }
 
 const getTask = function (req, res) {
     // execute the query from getTaskById
@@ -62,7 +59,9 @@ const getTask = function (req, res) {
 };     
 
 function taskNew(req, res) {
-    res.render("tasks/new_task.pug");
+    res.render("tasks/new_task.pug", { 
+        user: req.user
+        });
 }
 
 const makeTask = function (req, res) {
@@ -75,30 +74,29 @@ const makeTask = function (req, res) {
         res.send(err))
 };
 
-const removeTask = function (req, res) {
-    deleteTask(req.params.id).exec((err) => {
+const removeTask = async function (req, res) {
+    deleteTask(req.params.id).exec(async (err) => {
         if (err) {
             res.status(500);
             return res.json({
                 error: err.message
             });
         }
-        res.sendStatus(204);
-        res.send('Success');
+        //res.sendStatus(204);
+        await res.redirect("/tasks/dashboard")
     });
 };
 
 function taskEdit(req, res) {
     let id = req.params.id
-
     res.render("tasks/edit_task.pug", { 
-        id: id 
+        id: id,
+        user: req.user
         });
 }
 
 const changeTask = function (req, res) {
     // execute the query from updateTask
-    console.log("ghfgh")
     updateTask(req).exec((err, task) => {
         if (err) {
             res.status(500);
@@ -112,6 +110,23 @@ const changeTask = function (req, res) {
     });
 };
 
+const changeCompleted = function (req, res) {
+    // execute the query from updateCompleted
+    updateCompleted(req).exec((err, task) => {
+        if (err) {
+            res.status(500);
+            return res.json({
+                error: err.message
+            });
+        }
+        
+        res.status(200);
+        res.redirect('/tasks/dashboard');
+    });
+};
+
+
+
 module.exports = {
     getTasks,
     getTask,
@@ -119,5 +134,6 @@ module.exports = {
     removeTask,
     changeTask,
     taskNew,
-    taskEdit
+    taskEdit,
+    changeCompleted
 };
