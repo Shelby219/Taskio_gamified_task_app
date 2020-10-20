@@ -9,7 +9,7 @@ const expressSession = require('express-session')
 const MongoStore = require('connect-mongo')(expressSession);
 const methodOverride = require('method-override')
 const fetch = require('node-fetch')
-
+const flash = require("connect-flash")
 const taskRouter = require('./routes/tasks_routes');
 const pageRouter = require("./routes/page_routes");
 const authRouter = require("./routes/auth_routes");
@@ -75,7 +75,7 @@ mongoose.connect(
 require("./middleware/passport");
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(flash());
 
 
 app.use('/tasks', taskRouter);

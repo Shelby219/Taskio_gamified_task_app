@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+
+  h2 Edit User
+  
+
+  form.form-signin(action=`/user/edit?_method=PATCH`, method='POST')
+    p
+      
+      | Name: 
+      input.form-control(type='text', name='name', value='')
+      | Email: 
+      input.form-control(type='text', name='email', value='')
+      | Password: 
+      input.form-control(type='text', name='password', value='')
+      | Avatar(insert URL): 
+      input.form-control(type='text', name='avatar', value='')
+      |
+      input(type="hidden" name="_method" value="PATCH")
+    input.btn.btn-lg.btn-primary.btn-block(type='submit', value='Update User')
+ 
+  button(id="deletebtn") Delete User
+
+  script.
+     // delete fetch function for delete method
+    document.getElementById('deletebtn').addEventListener('click', 
+      function () {
+        fetch("http://localhost:3009/user/edit", {method: 'DELETE'})
+          .then(res => {if (res.ok) return res.json()  })
+          .then(data => {    
+              console.log(data)    
+              window.location.reload()  
+              })
+            .catch(err => console.log(err))
+
+      
+    })
+    
+
+    
