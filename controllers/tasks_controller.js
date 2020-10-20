@@ -6,12 +6,18 @@ const {
     deleteTask,
     updateTask,
     updateCompleted,
-    setpoints
+    setpoints,
+    comTallyT,
+    taskTallyT
 } = require('../utils/tasks_utilities');
 
 const getTasks = function (req, res) {
     // execute the query from getAllTask
+    
     getAllTasks(req)
+    .sort({
+        due_date: 1
+    })
     .exec((err, tasks) => {
         if (err) {
             res.status(500);
@@ -21,12 +27,16 @@ const getTasks = function (req, res) {
         }
 
         let points = (setpoints(tasks))
+        let allTally = (taskTallyT(tasks))
+        let comTally = (comTallyT(tasks))
       
         res.render('dashboard.pug', { 
             title: 'Task Quests', 
             tasks: tasks,
             user: req.user,
-            points: points
+            points: points,
+            all: allTally,
+            com: comTally
 
             })
     })

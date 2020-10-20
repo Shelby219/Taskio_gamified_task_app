@@ -12,6 +12,15 @@
   margin: 0;
 }
 
+body {
+  height: 125vh;
+  background-size: cover;
+  background-color: lightcyan !important;
+}
+/*
+ * NAV
+ */
+
 .navbar{
   background-color: darkblue !important;
   box-shadow: 0 0 15px 0 grey;
@@ -21,7 +30,8 @@
   font-family: 'Quicksand', sans-serif;
   font-size: 2em !important;
 }
-.fa-hourglass-half , .fa-gem{
+.fa-hourglass-half , .fa-gem,
+.fa-clipboard-check, .fa-clipboard-list{
   color: yellow !important;
   text-decoration: none;
   padding: 20px; 
@@ -35,11 +45,11 @@
   color: white !important;
  
 }
-
-
+/*
+ * DASHBOARD
+ */
 
 .container-dash {
-
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -56,29 +66,15 @@
 .pixel {
   margin: 15px;
   padding: 10px;
-  
-
 }
 .avatar {
   width: 150px;
   clip-path: circle(50% at 50% 50%);
-
-}
-
-
-
-body {
-  height: 125vh;
-  background-size: cover;
-  background-color: lightcyan !important;
-}
-
-.dashboard-container {
-  height: 100px;
 }
 
 .title {
   margin-top: 50px;
+  padding-bottom: 20px;
 }
 .title-page{
   text-align: center;
@@ -110,6 +106,7 @@ body {
   margin-top: -75px;
   background-color: #f8fafb !important;
   box-shadow: 0 0 15px 0 grey;
+
 }
 @media (min-width: 768px) {
   .sidebar {
@@ -118,33 +115,15 @@ body {
     top: 51px;
     bottom: 0;
     left: 0;
-    z-index: 1000;
+  
     display: block;
     padding: 20px;
     overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  /* Scrollable contents if viewport is shorter than content. */
     background-color: #f8fafb;
-    border-right: 1px solid #eee;
+  
   }
 }
-
-/* Sidebar navigation */
-.nav-sidebar {
-  margin-right: -21px; /* 20px padding + 1px border */
-  margin-bottom: 20px;
-  margin-left: -20px;
-}
-.nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-.nav-sidebar > .active > a,
-.nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
-  color:#f8fafb;
-  background-color: #428bca;
-}
-
 
 /*
  * Main content
@@ -183,7 +162,9 @@ body {
   border-radius: 50%;
 }
 
-
+/*
+ * FORM STYLING
+ */
 
 .form-signin {
   max-width: 330px;
@@ -221,11 +202,8 @@ body {
 }
 
 /*
- * HOME
+ * HOME PAGE
  */
-
-
-
 .container-home {
   height: 100%;
     padding: 0;
@@ -268,7 +246,6 @@ body {
 /*
  * TASK ITEM
  */
-
 
 .container-task {
   text-align: center;

@@ -6,7 +6,7 @@ block content
 
   .container-fluid
     .row
-      .col-sm-3.col-md-2.sidebar
+      .col.sidebar
         div.pixel-con
           img.pixel(src='/images/trophy.png' alt='trophy' width='70px')
           img.pixel(src='/images/bolt.png' alt='bolt' width='70px')
@@ -23,6 +23,7 @@ block content
               .child-dash
                 img.avatar(src=`${user.avatar}` )
               .child-dash
+                p.user-dash-items=user.name
                 p.user-dash-items=user.email
               .child-dash
                 canvas.user-dash-items(id="habitChart" width="200" height="200")
