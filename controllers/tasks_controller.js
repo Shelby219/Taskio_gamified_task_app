@@ -41,7 +41,7 @@ function setpoints (tasks) {
 
 }
  
-// const getPoints = function (tasks){
+//const getPoints = function (tasks){
 //     let completed = tasks.find({completed: true})
 //     return completed;
 

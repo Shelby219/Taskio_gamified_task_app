@@ -5,7 +5,9 @@ const Task = require('../models/task');
 // get all Tasks
 // return a query
 const getAllTasks = function (req) {
-    return Task.find();
+    //return Task.find();
+    //validation for finding tasks with author id
+    return Task.find({author: {$in: [req.user.id]}})
 };
 
 // get Task by id
@@ -28,7 +30,8 @@ const addTask = function (req) {
         repeating: req.body.repeating,
 		create_date: date,
         modified_date: date,
-        due_date: req.body.due_date
+        due_date: req.body.due_date,
+        author: req.user._id
 	}
  
     const newTask = new Task(task);

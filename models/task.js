@@ -12,11 +12,7 @@ const Task = new Schema({
         
     },
     author: {
-        id: {
-            type: Schema.Types.ObjectId,
-            ref: "User"
-        },
-        username: String
+        type: String
     },
     create_date: {
         type: Date
