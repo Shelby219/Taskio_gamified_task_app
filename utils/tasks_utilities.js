@@ -79,6 +79,32 @@ function setpoints (tasks) {
     return points;
 }
 
+function comTallyT (tasks) {
+    //iterate over tasks
+    let comTally = 0
+    for(let t of tasks){
+        if (t.completed == true){
+            //console.log(t)
+            comTally += 1
+        } 
+      }
+    return comTally ;
+}
+
+function taskTallyT (tasks) {
+    //iterate over tasks
+    let allTally = 0
+    for(let t of tasks){
+        if (t){
+            //console.log(t)
+            allTally += 1
+        } 
+      }
+    return allTally ;
+}
+
+
+
 //get timing out tasks
 function timingOut() {
     const date = Date.now()
@@ -108,5 +134,7 @@ module.exports = {
     deleteTask,
     updateTask,
     updateCompleted,
-    setpoints
+    setpoints,
+    comTallyT,
+    taskTallyT
 }

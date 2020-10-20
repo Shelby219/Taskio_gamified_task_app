@@ -38,6 +38,10 @@ html
               a.nav-link.active(href='/user/login') 
                 | Login
       if  user !== undefined
+        i.fas.fa-clipboard-list 
+        p.gem-time=all
+        i.fas.fa-clipboard-check
+        p.gem-time=com
         i.fas.fa-hourglass-half 
         p.gem-time 0
         i.far.fa-gem 
@@ -64,8 +68,7 @@ html
                   labels: ["Health", "Experience", "Points"],
                   datasets: [
                     {
-                      label: "Population (millions)",
-                      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                      backgroundColor: ["#C4273C", "#2B9FE6","#48D044"],
                       data: [15,75,45]
                     }
                   ]
@@ -76,7 +79,25 @@ html
                     display: true,
                     text: ''
                   },
-                   responsive: false
+                   responsive: false,
+                   scales: {
+                      xAxes: [{ 
+                          gridLines: {
+                              display: false,
+                              color: 'black'
+                          },
+                          ticks: {
+                            display: false
+                          },
+                      }],
+                      yAxes: [
+                         
+            {gridLines:{
+                  display: false,
+                  color: 'black'
+                      },
+                      }],
+                  }
                 }
             });
 
