@@ -14,8 +14,7 @@ const taskRouter = require('./routes/tasks_routes');
 const pageRouter = require("./routes/page_routes");
 const authRouter = require("./routes/auth_routes");
 
-
-const port = process.env.port || 3009;
+const port = process.env.PORT || 3009;
 // If we are not running in production, load our local .env
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
