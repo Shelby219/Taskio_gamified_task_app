@@ -5,7 +5,7 @@
 ![Pixel](public/images/bolt.png)
 -----
 
-* [Task App]( https://sleepy-falls-92191.herokuapp.com/) - Live website
+* [Task App]( https://sleepy-falls-92191.herokuapp.com/home) - Live website
 
 * [Github](https://github.com/Shelby219/express_hackathon) - Github repository
 
