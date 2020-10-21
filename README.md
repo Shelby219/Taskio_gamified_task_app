@@ -13,7 +13,9 @@
 
 ## Problem it Solves
 
-List making, note taking reminders and scribbles are common with a lot of people. Whilst just another list/task tracking app is an ok idea, a gamified version just adds a modern day fun spin on a standard task tracker.
+- The app is made to simplify our daily tasks schedule and build good habits.
+- A gamified version just adds a modern-day fun spin on a standard task tracker.
+- We at Taskio believe in the power of setting good goals and pushing ourselves forward.
 
 ## Initial Idea
 
@@ -26,23 +28,27 @@ Taskio is your task tracking friend with a kick of motivation of earning points!
 
 ### Current Features
 
-- User Register and Login
+- User can Register and Login (and
+remember user)
 - User can add their name and avatar
+through edit user
 - View User Dashboard (authenticated)
 - Add new tasks, edit and delete
-- Mark Tasks as Completed which accumulates points
-- View Total Points on Dashboard
-- View total and completed task tally on nav bar
+- Mark Tasks as Completed which
+accumulates points.
+- View Total Points on Dashboard.
+- View total and completed task tally on
+nav bar.
 
 ### Future Features
 
-- Health and Ability Earnings
-- Implement Reward Shopping
-- Advance Task functions, future dating, repeating, categories.
-- Advanced User account details
-- Profile image upload file
-- Oauth with account access
-- Show total tasks that are getting close to due date 
+- Health and Ability Earnings via the ChartJS.
+- Implement Reward Shopping (the pixel art)
+- Advance Task functions, future dating,repeating, category sorting.
+- Advanced User account details.
+- Profile image upload file. Oauth with account access.
+- Show total tasks that are getting close to due date(the timer in the nav bar).
+- Search task function.
 
 ### Tech Stack
 
@@ -55,6 +61,7 @@ Taskio is your task tracking friend with a kick of motivation of earning points!
 - Chart JS
 - HTML
 - CSS
+- Postman
 - Node Packages
     - Express
     - Cors
@@ -65,7 +72,6 @@ Taskio is your task tracking friend with a kick of motivation of earning points!
     - Express-session
     - Connect-Mongo
     - Method-override
-    - Node-fetch
     - Path
 - Trello
 - Google Docs
@@ -74,16 +80,33 @@ Taskio is your task tracking friend with a kick of motivation of earning points!
 
 ### Challenges
 
+- Setting up a remember me with passport-remember-me.
+- The processing of DELETE and PUT routes.
+- Handlebars EW, so pug JS was used for rendering.
+- Updating task and user was wiping data all the data.
+- Not going overboard with too many features we wanted in the short time.
+- Stronger focus on error handling for future.
+- Automated testing focus next time. We used manual testing this time.
+- Console logging EERRRRYthing is key.
+
 ### Planning
 
-#### Trello
+#### Trello Planning 
 ![Trello](docs/Trello.png)
 
-#### Notes
+#### Initial Notes
 ![Notes](docs/Notes.png)
 
 #### Wireframe
 ![Wireframes](docs/Wireframe.png)
+
+#### GitWorkflow
+- Main Repository, created on Shelby’s Github.
+- Alex forked from the created repo.
+- We both used branches for current features/work we were working on.
+- Then once happy with the branch, we pulled latest from main.
+- Then made a pull request to merge with main.
+- Workflow was smooth and merge conflicts were resolved with ease.
 
 ### Screen Shots
 ![Screen Shot](docs/shot1.png)
