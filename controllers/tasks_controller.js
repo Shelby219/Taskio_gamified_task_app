@@ -74,9 +74,9 @@ const makeTask = function (req, res) {
         res.send(err))
 };
 
-const removeTask = async function (req, res) {
+const removeTask =  function (req, res) {
     console.log("hit via route in controller")
-    deleteTask(req.params.id).exec(async (err) => {
+    deleteTask(req.params.id).exec( (err) => {
         if (err) {
             res.status(500);
             return res.json({
@@ -84,7 +84,9 @@ const removeTask = async function (req, res) {
             });
         }
         //res.sendStatus(204);
-        await res.redirect("/tasks/dashboard")
+        console.log("DONE")
+        //res.send("DONE")
+        //res.redirect("/tasks/dashboard")
     });
 };
 

@@ -6,7 +6,6 @@ block content
 
   form.form-signin(action=`/tasks/edit/${id}?_method=PUT`, method='POST')
     p
-      
       | Name: 
       input.form-control(type='text', name='name', value='')
       | Notes: 
@@ -36,3 +35,4 @@ block content
       br
       input(type="hidden" name="_method" value="PUT")
     input.btn.btn-lg.btn-primary.btn-block(type='submit', value='Update Task')
+

@@ -63,33 +63,37 @@ block content
                     td=task.due_date.toDateString()
                   td=task.notes
                   td=task.repeating
-                  if task.completed != true
-                    td
-                      form(action=`/tasks/completed/${task._id}?_method=PUT`, method='POST')
-                        button.btn-sm.btn-warning(id='completed', name='completed' value='yes')  Mark Complete
-                  else
-                    td
-                      p.fas.fa-check 
+                    if task.completed != true
+                      td
+                        form(action=`/tasks/completed/${task._id}?_method=PUT`, method='POST')
+                          button.btn-sm.btn-warning(id='completed', name='completed' value='yes')  Mark Complete
+                    else
+                      td
+                        p.fas.fa-check
+                      
                   td   
                       a.far.fa-edit(href='/tasks/edit/'+ task._id)
+            
                   td
-                      button.far.fa-trash-alt(id='delete', value=task._id)
+                      button.far.fa-trash-alt(id="delete", value=task._id) 
         
   script.
      // delete fetch function for delete method
-    const del = document.getElementById('delete')
-    del.addEventListener('click', 
-    function () {  
-      fetch('https://sleepy-falls-92191.herokuapp.com/tasks/'+ del.value, {    
-         method: 'DELETE'
-        })  
-        .then(res => {if (res.ok) return res.json()  })
-        .then(data => {    
-            console.log(data)    
-            window.location.reload()  
-            })
-          .catch(err => console.log(err))
-      })
-    
+     let del = document.getElementById('delete')
+     del.addEventListener('click',
+        function () {  
+          //console.log("CHECK")
+          fetch('http://localhost:3009/tasks/'+ del.value, {    
+            method: 'DELETE'
+            })  
+            .then(res => {if (res.ok) return res.json()  })
+            .then(data => {    
+                console.log(data)    
+                //window.location.reload()  
+                })
+              .catch(err => console.log(err))
+          })
+
+     
               
    
