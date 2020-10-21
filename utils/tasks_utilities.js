@@ -65,7 +65,6 @@ const updateTask = function (req) {
         }
     }
 
-    
     return Task.findByIdAndUpdate(req.params.id, actualRequest, {
         new: true
     });
