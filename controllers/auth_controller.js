@@ -47,7 +47,7 @@ function loginNew(req, res) {
 function editUser(req, res) {
     user = req.session.user
     res.render("auth/edit.pug", { 
-        user: user
+        user: req.session.passport.user
         });
 }
 
