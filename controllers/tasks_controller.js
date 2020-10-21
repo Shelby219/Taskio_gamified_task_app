@@ -74,18 +74,20 @@ const makeTask = function (req, res) {
         res.send(err))
 };
 
-const removeTask = async function (req, res) {
-    deleteTask(req.params.id).exec(async (err) => {
+async function removeTask(req, res) {
+  
+    try{deleteTask(req.params.id).exec(async (err) => {
         if (err) {
             res.status(500);
             return res.json({
                 error: err.message
             });
         }
-        //res.sendStatus(204);
-        await res.redirect("/tasks/dashboard")
-    });
-};
+        else {await res.redirect("/tasks/dashboard")}
+    })}
+    
+    catch(err) {console.log(err)}
+}
 
 function taskEdit(req, res) {
     let id = req.params.id
