@@ -46,9 +46,26 @@ const deleteTask = function (id) {
 
 // update Task
 // returns a query
+
 const updateTask = function (req) {
+
     req.body.modified_date = Date.now();
-    return Task.findByIdAndUpdate(req.params.id, req.body, {
+    let body = {}
+    
+    Object.assign(body, JSON.parse(JSON.stringify(req.body)));
+    // delete req.body
+    actualRequest= {}
+
+    for (const [key, value] of Object.entries(body)) {
+    
+        if (value) {
+            console.log(key)
+            actualRequest[key] = value
+        }
+    }
+
+    
+    return Task.findByIdAndUpdate(req.params.id, actualRequest, {
         new: true
     });
 };
