@@ -17,6 +17,10 @@ const User = new Schema({
     avatar: {
         type: String,
         default: "http://www.avatarsinpixels.com/minipix/eyJIYWlyTG93ZXIiOiI4IiwiTW91dGgiOiI0IiwiUGFudHMiOiIxIiwiVG9wIjoiMTAiLCJIYWlyIjoiMjIiLCJleWVzVG9uZSI6IjIyYjJjOCIsImhhaXJUb25lIjoiY2Q4MzVkIiwiaGFpclRvbmUyIjoiOGRkNjhkIiwicGFudHNUb25lIjoiMjU2Y2QzIiwicGFudHNUb25lMiI6ImUzMDRjZCIsInRvcFRvbmUiOiI0NDE1MzYiLCJ0b3BUb25lMiI6ImQyNTVkNiJ9;/5/show.png"
+    },
+    points: {
+        type: Number,
+        default: 0
     }
 });
 User.plugin(require('mongoose-bcrypt'));
