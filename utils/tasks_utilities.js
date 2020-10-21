@@ -74,24 +74,12 @@ async function setpoints (req) {
     //iterate over tasks
     let user =  await User.findById(req.user._id);
     let userPoints = user.points
-    //console.log(userPoints)
-    //console.log(typeof userPoints)
     return User.findByIdAndUpdate(req.user._id, {$set: {points:  userPoints + 1 }}, {
         new: true
     }) ;
-
-    // let points = 0
-    // for(let t of tasks){
-    //     if (t.completed == true){
-    //         //console.log(t)
-    //         points += 1
-    //     }
-    //   }
-    // return points;
 }
 
-
-
+//completed tally for nav
 function comTallyT (tasks) {
     //iterate over tasks
     let comTally = 0
@@ -103,7 +91,7 @@ function comTallyT (tasks) {
       }
     return comTally ;
 }
-
+//all tasks tally for nav
 function taskTallyT (tasks) {
     //iterate over tasks
     let allTally = 0
@@ -115,7 +103,6 @@ function taskTallyT (tasks) {
       }
     return allTally ;
 }
-
 
 
 //get timing out tasks

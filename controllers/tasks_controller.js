@@ -37,11 +37,9 @@ const getTasks = function (req, res) {
             points: points,
             all: allTally,
             com: comTally
-
             })
     })
 };
-
 
 const getTask = function (req, res) {
     // execute the query from getTaskById
@@ -141,8 +139,6 @@ const updatePoints = function (req) {
         }
     });
 };
-
-
 
 
 module.exports = {
