@@ -25,8 +25,8 @@ const getTasks = function (req, res) {
                 error: err.message
             });
         }
-
-        let points = (setpoints(tasks))
+         
+        let points = req.user.points
         let allTally = (taskTallyT(tasks))
         let comTally = (comTallyT(tasks))
       
@@ -90,8 +90,6 @@ const removeTask =  function (req, res) {
     });
 };
 
-
-
 function taskEdit(req, res) {
     let id = req.params.id
     res.render("tasks/edit_task.pug", { 
@@ -124,11 +122,26 @@ const changeCompleted = function (req, res) {
                 error: err.message
             });
         }
-        
-        res.status(200);
+        updatePoints(req)
+        console.log("cc")
+        //res.status(200);
         res.redirect('/tasks/dashboard');
     });
 };
+
+const updatePoints = function (req) {
+    // execute the query from updateCompleted
+    setpoints(req).then((err, points) => {
+        if (err) {
+            //res.status(500);
+            console.log(points)
+            // return res.json({
+            //     error: err.message
+            // });
+        }
+    });
+};
+
 
 
 

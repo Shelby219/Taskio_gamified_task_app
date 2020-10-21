@@ -1,4 +1,5 @@
 const Task = require('../models/task');
+const User = require('../models/user');
 
 // Exported functions
 
@@ -58,26 +59,38 @@ const updateTask = function (req) {
 const updateCompleted = function (req) {
     let completed = req.body.completed 
     if ( completed == 'yes') {
+       // console.log(setpoints (req))
         return Task.findByIdAndUpdate(req.params.id, {$set: {completed: true }}, {
             new: true
-        }) ;
+        }) 
+    
     } else {
         req.error = "No"
     }
 };
 
-//set points based on completed tasks
-function setpoints (tasks) {
+//set points and update based on completed being ticked off
+async function setpoints (req) {
     //iterate over tasks
-    let points = 0
-    for(let t of tasks){
-        if (t.completed == true){
-            //console.log(t)
-            points += 1
-        }
-      }
-    return points;
+    let user =  await User.findById(req.user._id);
+    let userPoints = user.points
+    //console.log(userPoints)
+    //console.log(typeof userPoints)
+    return User.findByIdAndUpdate(req.user._id, {$set: {points:  userPoints + 1 }}, {
+        new: true
+    }) ;
+
+    // let points = 0
+    // for(let t of tasks){
+    //     if (t.completed == true){
+    //         //console.log(t)
+    //         points += 1
+    //     }
+    //   }
+    // return points;
 }
+
+
 
 function comTallyT (tasks) {
     //iterate over tasks
