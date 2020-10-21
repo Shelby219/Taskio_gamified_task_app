@@ -32,7 +32,7 @@ body {
 }
 .fa-hourglass-half , .fa-gem,
 .fa-clipboard-check, .fa-clipboard-list{
-  color: yellow !important;
+  color: #f7e72f !important;
   text-decoration: none; 
   padding: 20px; 
 }
@@ -94,6 +94,7 @@ body {
  */
 .navbar-fixed-top {
   border: 0;
+  
 }
 
 /*
@@ -101,7 +102,15 @@ body {
  */
 
 /* Hide for mobile, show later */
-
+.rewards {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1em;
+  padding: 5px;
+  box-shadow: 0 0 15px 0 grey;
+  border-radius: 25px;
+  background-color:#f7e72f;
+}
 .sidebar {
   margin-top: -75px;
   background-color: #FEFEFE !important;
