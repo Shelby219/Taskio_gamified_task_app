@@ -48,7 +48,6 @@ block content
                   th Name
                   th Due Date
                   th Notes
-                  th Repeating
                   th Completed
                   th
                   th
@@ -62,7 +61,7 @@ block content
                   if task.due_date !== undefined
                     td=task.due_date.toDateString()
                   td=task.notes
-                  td=task.repeating
+                 
                     if task.completed != true
                       td
                         form(action=`/tasks/completed/${task._id}?_method=PUT`, method='POST')
