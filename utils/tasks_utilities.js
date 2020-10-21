@@ -125,7 +125,7 @@ function timingOut() {
     // return timing;
 
 }
-timingOut()
+
 
 module.exports = {
     getAllTasks,

@@ -76,12 +76,11 @@ block content
                       button.far.fa-trash-alt(id='delete', value=task._id)
         
   script.
-  
      // delete fetch function for delete method
     const del = document.getElementById('delete')
     del.addEventListener('click', 
     function () {  
-      fetch('/tasks/'+ del.value, {    
+      fetch('https://sleepy-falls-92191.herokuapp.com/tasks/'+ del.value, {    
          method: 'DELETE'
         })  
         .then(res => {if (res.ok) return res.json()  })

@@ -74,20 +74,21 @@ const makeTask = function (req, res) {
         res.send(err))
 };
 
-async function removeTask(req, res) {
-  
-    try{deleteTask(req.params.id).exec(async (err) => {
+const removeTask = async function (req, res) {
+    console.log("hit via route in controller")
+    deleteTask(req.params.id).exec(async (err) => {
         if (err) {
             res.status(500);
             return res.json({
                 error: err.message
             });
         }
-        else {await res.redirect("/tasks/dashboard")}
-    })}
-    
-    catch(err) {console.log(err)}
-}
+        //res.sendStatus(204);
+        await res.redirect("/tasks/dashboard")
+    });
+};
+
+
 
 function taskEdit(req, res) {
     let id = req.params.id
