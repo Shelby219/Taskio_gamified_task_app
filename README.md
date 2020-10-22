@@ -73,8 +73,6 @@ nav bar.
     - Cors
     - Mongoose
     - Passport
-    - Pug
-    - Passport-remember-me
     - Express-session
     - Connect-Mongo
     - Method-override
@@ -88,12 +86,9 @@ nav bar.
 
 - Setting up a remember me with passport-remember-me.
 - The processing of DELETE and PUT routes.
-- Handlebars EW, so pug JS was used for rendering.
 - Updating task and user was wiping data all the data.
 - Not going overboard with too many features we wanted in the short time.
-- Stronger focus on error handling for future.
-- Automated testing focus next time. We used manual testing this time.
-- Console logging EERRRRYthing is key.
+
 
 ### Planning
 
