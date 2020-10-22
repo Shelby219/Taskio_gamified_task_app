@@ -50,6 +50,12 @@ nav bar.
 - Show total tasks that are getting close to due date(the timer in the nav bar).
 - Search task function.
 
+### Future Improvements
+
+- Improve Responsiveness
+- Improve/add better error handling
+- Automated Tests
+
 ### Tech Stack
 
 - JavaScript
