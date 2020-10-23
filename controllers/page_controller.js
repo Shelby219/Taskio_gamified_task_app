@@ -3,7 +3,7 @@ function index(req, res) {
 }
     
 function dashboard(req, res) {
-    // const email = req.user.email;
+
     res.render("dashboard.pug");
 }
     

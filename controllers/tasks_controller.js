@@ -73,7 +73,7 @@ const makeTask = function (req, res) {
 };
 
 const removeTask =  function (req, res) {
-    console.log("hit via route in controller")
+   
     deleteTask(req.params.id).exec( (err) => {
         if (err) {
             res.status(500);
@@ -81,10 +81,9 @@ const removeTask =  function (req, res) {
                 error: err.message
             });
         }
-        //res.sendStatus(204);
+     
         console.log("DONE")
-        //res.send("DONE")
-        //res.redirect("/tasks/dashboard")
+   
     });
 };
 
@@ -121,8 +120,7 @@ const changeCompleted = function (req, res) {
             });
         }
         updatePoints(req)
-        console.log("cc")
-        //res.status(200);
+        
         res.redirect('/tasks/dashboard');
     });
 };
@@ -131,11 +129,9 @@ const updatePoints = function (req) {
     // execute the query from updateCompleted
     setpoints(req).then((err, points) => {
         if (err) {
-            //res.status(500);
+     
             console.log(points)
-            // return res.json({
-            //     error: err.message
-            // });
+         
         }
     });
 };

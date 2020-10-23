@@ -34,15 +34,6 @@ function loginNew(req, res) {
     res.render("auth/login.pug");
 }
 
-// function loginCreate(req, res, next) {
-//     const loginFunc = passport.authenticate("local",
-//     {
-//     successRedirect: "/tasks/dashboard",
-//     failureRedirect: "/user/login"
-//     })
-//     loginFunc(req, res, next)
-    
-// }
 
 function editUser(req, res) {
     user = req.session.user
@@ -66,8 +57,7 @@ function editUserReq(req, res) {
 }
 
 async function removeUser(req, res) {
-    console.log("hit via route in controller")
-    console.log(req.session.passport.user)
+    
     try{deleteUser(req.session.passport.user).exec(async (err) => {
         if (err) {
             res.status(500);
