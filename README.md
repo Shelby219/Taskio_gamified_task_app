@@ -25,36 +25,32 @@ Everyday Task Tracker with a gamified twist. When the need for keeping task list
 
 Taskio is your task tracking friend with a kick of motivation of earning points! 
 
-
 ### Current Features
 
-- User can Register and Login (and
-remember user)
-- User can add their name and avatar
-through edit user
-- View User Dashboard (authenticated)
-- Add new tasks, edit and delete
-- Mark Tasks as Completed which
-accumulates points.
+- User can Register and Login (and remember user).
+- User can add their name and avatar through edit user.
+- View User Dashboard (authenticated).
+- Add new tasks, edit and delete.
+- Mark Tasks as Completed which accumulates points.
 - View Total Points on Dashboard.
-- View total and completed task tally on
-nav bar.
+- View total and completed task tally on nav bar.
 
 ### Future Features
 
 - Health and Ability Earnings via the ChartJS.
-- Implement Reward Shopping (the pixel art)
-- Advance Task functions, future dating,repeating, category sorting.
+- Implement Reward Shopping (the pixel art).
+- Advance Task functions, future dating, repeating, category sorting.
 - Advanced User account details.
-- Profile image upload file. Oauth with account access.
-- Show total tasks that are getting close to due date(the timer in the nav bar).
+- Profile image upload file. 
+- Oauth with account access.
+- Show total tasks that are getting close to due date.
 - Search task function.
 
 ### Future Improvements
 
-- Improve Responsiveness
-- Improve/add better error handling
-- Automated Tests
+- Improve Responsiveness(due to limited time this could not be fully suitable).
+- Improve/add clear and correct error handling.
+- Automated Testing incorporated. A lot of manual testing was done due to time constraints. 
 
 ### Tech Stack
 
@@ -81,14 +77,12 @@ nav bar.
 - Google Docs
 - Figma 
 
-
-### Challenges
+### Resolved Challenges
 
 - Setting up a remember me with passport-remember-me.
-- The processing of DELETE and PUT routes.
-- Updating task and user was wiping data all the data.
-- Not going overboard with too many features we wanted in the short time.
-
+- The processing of DELETE and PUT requests with PUG.
+- Updating task and user was wiping data all the data. 
+- Keeping features and functions in a simple and clear MVP given the short timeframe.
 
 ### Planning
 
@@ -101,13 +95,6 @@ nav bar.
 #### Wireframe
 ![Wireframes](docs/Wireframe.png)
 
-#### GitWorkflow
-- Main Repository, created on Shelby’s Github.
-- Alex forked from the created repo.
-- We both used branches for current features/work we were working on.
-- Then once happy with the branch, we pulled latest from main.
-- Then made a pull request to merge with main.
-- Workflow was smooth and merge conflicts were resolved with ease.
 
 ### Screen Shots
 ![Screen Shot](docs/shot1.png)
